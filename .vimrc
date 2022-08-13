@@ -33,6 +33,8 @@ call plug#begin()
   Plug 'itchyny/lightline.vim'
   Plug 'mengelbrecht/lightline-bufferline'
   Plug 'tomasiser/vim-code-dark'
+  " Markdown previewer
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 call plug#end()
 
 colorscheme codedark
@@ -57,6 +59,12 @@ let g:lightline = {
       \   'buffers': 'tabsel'
       \ }
       \ }
+
+" set to 1, nvim will open the preview window after entering the markdown
+" buffer
+let g:mkdp_auto_start = 1
+
+let g:mkdp_auto_close = 0
 
 if executable('ag')
 	let g:ackprg = 'ag --vimgrep'

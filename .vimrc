@@ -1,22 +1,27 @@
 set hlsearch
 set nocompatible
 set ignorecase
-filetype plugin on
+filetype plugin indent on
 syntax on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" on pressing tab, insert 4 spaces
+set expandtab
 
-" surrounds a block of text with '#' using \#
-:nnoremap <Leader># I#<Space><Esc>A<Space>#<Esc>yy2P<C-V>$r#2j.
+set rtp+=/opt/homebrew/opt/fzf
+set laststatus=2
+set noshowmode
 
-" lists buffers and starts typing which buffer to switch to
-:nnoremap <Leader>b :buffers<CR>:buffer<Space>
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
 
-" use control-f in fzf to find files
-:nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
 
-" use \f in fzf to find text in files
-:nnoremap <silent> <Leader>f :Rg<CR>
-
-call plug#begin('~/.vim/plugged')
+call plug#begin()
   Plug 'preservim/nerdtree'
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

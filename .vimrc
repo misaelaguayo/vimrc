@@ -22,6 +22,7 @@ nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
 
 call plug#begin()
+  Plug 'neovim/nvim-lspconfig'
   Plug 'preservim/nerdtree'
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -31,16 +32,12 @@ call plug#begin()
   " vim line overview
   Plug 'itchyny/lightline.vim'
   Plug 'mengelbrecht/lightline-bufferline'
-  " vim language server
-  Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
   Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 colorscheme codedark
 
+" Required for operations modifying multiple buffers like rename
 set hidden
 set number
 
@@ -60,17 +57,6 @@ let g:lightline = {
       \   'buffers': 'tabsel'
       \ }
       \ }
-
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'python': ['pyls'],
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-    \ }
-
-nmap <silent>K <Plug>(lcn-hover)
-nmap <silent> gd <Plug>(lcn-definition)
 
 if executable('ag')
 	let g:ackprg = 'ag --vimgrep'

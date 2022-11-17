@@ -1,6 +1,6 @@
-# Vimrc configuration
+# general configurations
 
-A way to quickly track my vimrc configurations
+A way to quickly track my program configurations such as vimrc and tmux
 
 ## Features
 

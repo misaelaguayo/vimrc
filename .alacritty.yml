@@ -23,16 +23,16 @@
   # available, otherwise `xterm-256color` is used.
   #TERM: alacritty
 
-#window:
+window:
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. Both lines and columns
   # must be non-zero for this to take effect. The number of columns must be at
   # least `2`, while using a value of `0` for columns and lines will fall back
   # to the window manager's recommended size
-  #dimensions:
-  #  columns: 0
-  #  lines: 0
+  dimensions:
+    columns: 90
+    lines: 30
 
   # Window position (changes require restart)
   #
@@ -68,7 +68,7 @@
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  #opacity: 1.0
+  # opacity: 1.0
 
   # Startup Mode (changes require restart)
   #
@@ -110,41 +110,21 @@
   #multiplier: 3
 
 # Font configuration
-#font:
-  # Normal (roman) font face
-  #normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Regular
+font:
+  #Normal (roman) font face
+  normal:
+    family: Hack Nerd Font Mono
+    style: Regular
 
   # Bold font face
-  #bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Bold
+  bold:
+    family: Hack Nerd Font Mono
+    style: Regular
 
   # Italic font face
-  #italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-
-    # The `style` can be specified to pick a specific face.
-    #style: Italic
+  italic:
+    family: Hack Nerd Font Mono
+    style: Regular
 
   # Bold italic font face
   #bold_italic:
@@ -438,16 +418,16 @@
 # Default:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+shell:
+  program: "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+  args:
+    - -WorkingDirectory ~/
 
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
-#working_directory: None
+# working_directory: ~/
 
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
@@ -758,7 +738,7 @@
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-key_bindings:
+#key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -772,7 +752,7 @@ key_bindings:
   #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
   #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
-  - { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
+  #- { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
   #- { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: C,      mods: Control,       mode: Vi|~Search, action: ToggleViMode            }
   #- { key: Y,      mods: Control,       mode: Vi|~Search, action: ScrollLineUp            }
@@ -844,7 +824,6 @@ key_bindings:
   #- { key: NumpadAdd,      mods: Control,                         action: IncreaseFontSize }
   #- { key: Minus,          mods: Control,                         action: DecreaseFontSize }
   #- { key: NumpadSubtract, mods: Control,                         action: DecreaseFontSize }
-  - { key: N,              mods: Control,                    action: SpawnNewInstance      }
 
   # (Windows only)
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }

@@ -1,33 +1,16 @@
 --[[
- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
- `lvim` is the global options object
+lvim is the global options object
+
+Linters should be
+filled in as strings with either
+a global executable or a path to
+an executable
 ]]
-
--- Enable powershell as your default shell
-vim.opt.shell = "pwsh.exe -NoLogo"
-vim.opt.shellcmdflag =
-  "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-vim.cmd [[
-		let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-		set shellquote= shellxquote=
-  ]]
-
--- Set a compatible clipboard manager
-vim.g.clipboard = {
-  copy = {
-    ["+"] = "win32yank.exe -i --crlf",
-    ["*"] = "win32yank.exe -i --crlf",
-  },
-  paste = {
-    ["+"] = "win32yank.exe -o --lf",
-    ["*"] = "win32yank.exe -o --lf",
-  },
-}
+-- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save.enabled = false
+lvim.format_on_save.enabled = true
 lvim.colorscheme = "lunar"
 lvim.transparent_window = true
 -- to disable icons and use a minimalist setup, uncomment the following
@@ -37,6 +20,7 @@ lvim.transparent_window = true
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.builtin.dap.active = true
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
@@ -78,26 +62,28 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 -- }
 
+-- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.terminal.active = false
--- lvim.builtin.terminal.shell = "pwsh.exe -NoLogo"
-
--- nvim-tree has some performance issues on windows, see kyazdani42/nvim-tree.lua#549
-lvim.builtin.nvimtree.setup.diagnostics.enable = nil
-lvim.builtin.nvimtree.setup.filters.custom = nil
-lvim.builtin.nvimtree.setup.git.enable = nil
-lvim.builtin.nvimtree.setup.update_cwd = nil
-lvim.builtin.nvimtree.setup.update_focused_file.update_cwd = nil
+lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.highlight_git = nil
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = nil
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
+  "bash",
   "c",
+  "javascript",
+  "json",
   "lua",
+  "python",
+  "typescript",
+  "tsx",
+  "css",
+  "rust",
+  "java",
+  "yaml",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -199,3 +185,21 @@ lvim.builtin.treesitter.highlight.enable = true
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+local dap = require('dap')
+dap.adapters.python = {
+  type = 'executable';
+  command = '/opt/homebrew/bin/python3';
+  args = { '-m', 'debugpy.adapter' };
+}
+
+dap.configurations.python = {
+  {
+    type = 'python';
+    request = 'launch';
+    name = "Launch file";
+    program = "${file}";
+    pythonPath = function()
+      return '/opt/homebrew/bin/python3'
+    end;
+  },
+}

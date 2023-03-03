@@ -1,0 +1,9 @@
+[user]
+	email = aguayo.misael@gmail.com
+	name = misael aguayo
+[core]
+	excludesFile = ~/.gitignore
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff

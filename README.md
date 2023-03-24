@@ -27,6 +27,9 @@ A way to quickly track my program configurations such as vimrc and tmux
 - Vim/Neovim
   - Text editor
   - Alternative to running nvim. Current state is probably broken
+  
+- Nix package manager
+  - package manager aimed for reproducible environments. Easy to transfer setup between computers
 
 ## Requirements
 

@@ -53,6 +53,10 @@ lua << EOF
         "folke/trouble.nvim",
         "folke/neodev.nvim",
         "github/copilot.vim",
+        "ellisonleao/gruvbox.nvim",
+        "ms-jpq/coq_nvim",
+        "ms-jpq/coq.artifacts",
+        priority = 1000,
         build = ":MasonUpdate" -- :MasonUpdate updates registry contents
     })
 
@@ -108,3 +112,6 @@ lua << EOF
     })
 
 EOF
+
+set background=dark
+colorscheme gruvbox

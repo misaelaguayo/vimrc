@@ -58,6 +58,14 @@ lua << EOF
         "ms-jpq/coq.artifacts",
         {"junegunn/fzf", run = "./install --all" },
         "junegunn/fzf.vim",
+        {"tamton-aquib/duck.nvim",
+            config = function()
+                vim.keymap.set('n', '<leader>dd', function() require("duck").hatch() end, {})
+                vim.keymap.set('n', '<leader>dk', function() require("duck").cook() end, {})
+            end
+        },
+        "tpope/vim-fugitive",
+        "lewis6991/gitsigns.nvim",
         priority = 1000,
         build = ":MasonUpdate" -- :MasonUpdate updates registry contents
     })
@@ -76,6 +84,8 @@ lua << EOF
 
     require("nvim-tree").setup()
 
+    require('gitsigns').setup()
+
     -- nvim tree keybindings
     vim.keymap.set('n', '<C-e>', ':NvimTreeToggle<CR>')
 
@@ -83,6 +93,12 @@ lua << EOF
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+    -- vim.keymap.set('n', '<space>gj', gitsigns.next_hunk)
+    -- vim.keymap.set('n', '<space>gk', gitsigns.prev_hunk)
+    -- vim.keymap.set('n', '<space>gp', gitsigns.preview_hunk_inline)
+    -- vim.keymap.set('n', '<space>gl', gitsigns.blame_line)
+    -- vim.keymap.set('n', '<space>gr', gitsigns.reset_hunk)
+    -- vim.keymap.set('n', '<space>gR', gitsigns.reset_buffer)
 
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),

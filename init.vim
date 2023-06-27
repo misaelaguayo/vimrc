@@ -56,6 +56,8 @@ lua << EOF
         "ellisonleao/gruvbox.nvim",
         "ms-jpq/coq_nvim",
         "ms-jpq/coq.artifacts",
+        {"junegunn/fzf", run = "./install --all" },
+        "junegunn/fzf.vim",
         priority = 1000,
         build = ":MasonUpdate" -- :MasonUpdate updates registry contents
     })

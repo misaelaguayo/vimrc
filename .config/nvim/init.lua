@@ -1,18 +1,17 @@
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
-vim.opt.nocompatible = true
 vim.opt.background = 'dark'
 
 vim.cmd('filetype plugin indent on')
 vim.cmd('syntax on')
-vim.cmd('colorscheme gruvbox')
+-- vim.cmd('colorscheme gruvbox')
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.laststatus = 2
-vim.opt.noshowmode = true
+-- vim.opt.noshowmode = true
 
 local function map(mode, combo, action, opts)
     local options = { noremap = true }

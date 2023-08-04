@@ -66,6 +66,7 @@ lua << EOF
         },
         "tpope/vim-fugitive",
         "lewis6991/gitsigns.nvim",
+        "xiyaowong/transparent.nvim",
         priority = 1000,
         build = ":MasonUpdate" -- :MasonUpdate updates registry contents
     })
@@ -86,8 +87,13 @@ lua << EOF
 
     require('gitsigns').setup()
 
+    require("transparent").setup()
+
     -- nvim tree keybindings
     vim.keymap.set('n', '<space>e', ':NvimTreeToggle<CR>')
+
+    -- transparent keybindings
+    vim.keymap.set('n', '<space>t', ':TransparentToggle<CR>')
 
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next)

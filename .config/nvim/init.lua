@@ -4,14 +4,12 @@ vim.opt.background = 'dark'
 
 vim.cmd('filetype plugin indent on')
 vim.cmd('syntax on')
--- vim.cmd('colorscheme gruvbox')
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.laststatus = 2
--- vim.opt.noshowmode = true
 
 local function map(mode, combo, action, opts)
     local options = { noremap = true }
@@ -56,7 +54,7 @@ require("lazy").setup({
     "folke/trouble.nvim",
     "folke/neodev.nvim",
     "github/copilot.vim",
-    "ellisonleao/gruvbox.nvim",
+    {"ellisonleao/gruvbox.nvim", priority = 1000},
     "ms-jpq/coq_nvim",
     "ms-jpq/coq.artifacts",
     {"junegunn/fzf", run = "./install --all" },
@@ -70,7 +68,6 @@ require("lazy").setup({
     "tpope/vim-fugitive",
     "lewis6991/gitsigns.nvim",
     "xiyaowong/transparent.nvim",
-    priority = 1000,
     build = ":MasonUpdate" -- :MasonUpdate updates registry contents
 })
 
@@ -130,3 +127,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
+
+vim.cmd[[colorscheme gruvbox]]

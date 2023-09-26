@@ -61,12 +61,6 @@ require("lazy").setup({
     "ms-jpq/coq.artifacts",
     {"junegunn/fzf", run = "./install --all" },
     "junegunn/fzf.vim",
-    {"tamton-aquib/duck.nvim",
-        config = function()
-            vim.keymap.set('n', '<leader>dd', function() require("duck").hatch() end, {})
-            vim.keymap.set('n', '<leader>dk', function() require("duck").cook() end, {})
-        end
-    },
     "tpope/vim-fugitive",
     "lewis6991/gitsigns.nvim",
     "xiyaowong/transparent.nvim",

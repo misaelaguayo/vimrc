@@ -19,10 +19,10 @@ local function map(mode, combo, action, opts)
     vim.api.nvim_set_keymap(mode, combo, action, options)
 end
 
-map('n', '<CR>', ':noh<CR><CR>', {noremap = true})
-map('n', '<silent> <Leader>b', ':Buffers<CR>', {noremap = true})
-map('n', '<silent> <C-f>', ':Files<CR>', {noremap = true})
-map('n', '<silent> <Leader>f', ':Rg', {noremap = true})
+vim.keymap.set('n', '<CR>', ':noh<CR><CR>', {noremap = true})
+vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', {noremap = true})
+vim.keymap.set('n', '<C-f>', ':Files<CR>', {noremap = true})
+vim.keymap.set('n', '<Leader>f', ':Rg', {noremap = true})
 
 -- disable netrw at the very
 vim.g.loaded_netrw = 1

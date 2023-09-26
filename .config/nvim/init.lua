@@ -1,6 +1,7 @@
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.background = 'dark'
+vim.opt.number = true
 
 vim.cmd('filetype plugin indent on')
 vim.cmd('syntax on')
@@ -22,7 +23,8 @@ end
 vim.keymap.set('n', '<CR>', ':noh<CR><CR>', {noremap = true})
 vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', {noremap = true})
 vim.keymap.set('n', '<C-f>', ':Files<CR>', {noremap = true})
-vim.keymap.set('n', '<Leader>f', ':Rg', {noremap = true})
+vim.keymap.set('n', '<Leader>f', ':Rg<CR>', {noremap = true})
+vim.keymap.set('n', '<Leader>w', ':set wrap!<CR>', {noremap = true})
 
 -- disable netrw at the very
 vim.g.loaded_netrw = 1
@@ -98,6 +100,12 @@ vim.keymap.set('n', '<space>t', ':TransparentToggle<CR>')
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+
+-- gitsigns keybindings
+vim.keymap.set('n', '<space>gj', ':Gitsigns next_hunk<CR>')
+vim.keymap.set('n', '<space>gk', ':Gitsigns prev_hunk<CR>')
+vim.keymap.set('n', '<space>gr', ':Gitsigns reset_hunk<CR>')
+vim.keymap.set('n', '<space>gR', ':Gitsigns reset_buffer<CR>')
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),

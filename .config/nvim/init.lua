@@ -1,3 +1,7 @@
+vim.g.UltiSnipsExpandTrigger = "<tab>"
+vim.g.UltiSnipsJumpForwardTrigger = "<c-b>"
+vim.g.UltiSnipsJumpBackwardTrigger = "<c-z>"
+
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.background = 'dark'
@@ -44,6 +48,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
@@ -54,7 +59,7 @@ require("lazy").setup({
     "mfussenegger/nvim-dap",
     "folke/which-key.nvim",
     "folke/trouble.nvim",
-    "folke/neodev.nvim",
+    {"folke/neodev.nvim", opts={} },
     "github/copilot.vim",
     {"ellisonleao/gruvbox.nvim", priority = 1000},
     "ms-jpq/coq_nvim",
@@ -64,8 +69,45 @@ require("lazy").setup({
     "tpope/vim-fugitive",
     "lewis6991/gitsigns.nvim",
     "xiyaowong/transparent.nvim",
+    "SirVer/ultisnips",
+    "honza/vim-snippets",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/nvim-cmp",
+    "quangnguyen30192/cmp-nvim-ultisnips",
     build = ":MasonUpdate" -- :MasonUpdate updates registry contents
 })
+
+local cmp = require("cmp")
+
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            vim.fn["UltiSnips#Anon"](args.body)
+        end,
+    },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered()
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-p>'] = cmp.mapping.select_prev_item(),
+      ['<C-n>'] = cmp.mapping.select_next_item(),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'ultisnips' },
+    }, {})
+})
+
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+require("neodev").setup({})
 
 require("mason").setup()
 require("mason-lspconfig").setup()
@@ -75,7 +117,9 @@ require("mason-lspconfig").setup_handlers {
     -- and will be called for each installed server that doesn't have
     -- a dedicated handler.
     function (server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {}
+        require("lspconfig")[server_name].setup {
+            capabilities = capabilities,
+        }
     end,
 }
 

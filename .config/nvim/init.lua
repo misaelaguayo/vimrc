@@ -76,6 +76,7 @@ require("lazy").setup({
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
     "quangnguyen30192/cmp-nvim-ultisnips",
+    "numToStr/Comment.nvim",
     build = ":MasonUpdate" -- :MasonUpdate updates registry contents
 })
 
@@ -122,6 +123,8 @@ require("mason-lspconfig").setup_handlers {
         }
     end,
 }
+
+require("Comment").setup()
 
 require("nvim-tree").setup()
 

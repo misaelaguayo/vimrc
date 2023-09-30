@@ -34,7 +34,8 @@ A way to quickly track my program configurations such as vimrc and tmux
 
 ## Requirements
 
-- Neovim for lsp
+- Neovim
+- [lemonade](https://github.com/lemonade-command/lemonade) if using nvim over ssh
 - Nodejs and Yarn
 - Ruby to install teamocil
 - LunarVim
@@ -47,3 +48,4 @@ A way to quickly track my program configurations such as vimrc and tmux
 
 ## Installation
 1. copy everything to home directory
+2. Make sure to run `checkhealth` in neovim to check for any issues with vim plugins or commands

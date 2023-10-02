@@ -141,7 +141,7 @@ require('gitsigns').setup()
 require("transparent").setup()
 
 -- nvim tree keybindings
-vim.keymap.set('n', '<space>e', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<space>e', ':NvimTreeFindFileToggle<CR>')
 
 -- transparent keybindings
 vim.keymap.set('n', '<space>t', ':TransparentToggle<CR>')

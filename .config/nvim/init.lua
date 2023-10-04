@@ -2,7 +2,7 @@ vim.g.UltiSnipsExpandTrigger = "<tab>"
 vim.g.UltiSnipsJumpForwardTrigger = "<c-b>"
 vim.g.UltiSnipsJumpBackwardTrigger = "<c-z>"
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.background = 'dark'
 vim.opt.number = true

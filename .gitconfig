@@ -1,9 +1,15 @@
 [user]
 	email = aguayo.misael@gmail.com
-	name = misael aguayo
+	name = Misael Aguayo
 [core]
+    pager = delta
 	excludesFile = ~/.gitignore
-[diff]
-	tool = vimdiff
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    light = false
 [merge]
-	tool = vimdiff
+	conflictstyle = diff3
+[diff]
+	colorMoved = default

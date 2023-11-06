@@ -8,6 +8,7 @@ vim.opt.ignorecase = true
 vim.opt.background = 'dark'
 vim.opt.number = true
 vim.opt.diffopt:append {'vertical'}
+vim.opt.fixeol = false
 
 vim.cmd('filetype plugin indent on')
 vim.cmd('syntax on')

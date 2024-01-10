@@ -60,8 +60,10 @@ require("lazy").setup({
     "nvim-tree/nvim-tree.lua",
     "neovim/nvim-lspconfig",
     "mfussenegger/nvim-dap",
+    "milisims/nvim-luaref",
     "folke/which-key.nvim",
     "folke/trouble.nvim",
+    "folke/neoconf.nvim",
     { "folke/neodev.nvim",        opts = {} },
     "github/copilot.vim",
     { "ellisonleao/gruvbox.nvim", priority = 1000 },
@@ -119,9 +121,9 @@ cmp.setup({
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require("neodev").setup({})
-
 require("mason").setup()
+require("neoconf").setup({})
+require("neodev").setup({})
 require("mason-lspconfig").setup()
 
 require("mason-lspconfig").setup_handlers {

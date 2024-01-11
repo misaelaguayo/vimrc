@@ -55,7 +55,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    {"misaelaguayo/markdown.nvim", dev=true},
+    {"misaelaguayo/markdown.nvim", dev=true, opts={name = "misael"}},
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "nvim-tree/nvim-tree.lua",

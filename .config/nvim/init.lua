@@ -55,6 +55,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    {"misaelaguayo/markdown.nvim", dev=true},
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "nvim-tree/nvim-tree.lua",
@@ -90,7 +91,10 @@ require("lazy").setup({
             require("nvim-surround").setup({})
         end,
     },
-    build = ":MasonUpdate" -- :MasonUpdate updates registry contents
+    build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+    dev = {
+        path="~/Projects"
+    },
 })
 
 local cmp = require("cmp")

@@ -61,16 +61,16 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {"misaelaguayo/markdown.nvim", dev=true, opts={name = "misael"}},
-    "williamboman/mason.nvim",
+    { "williamboman/mason.nvim", config = function() require("mason").setup() end },
+    {"folke/neoconf.nvim", config = function() require("neoconf").setup() end},
+    { "folke/neodev.nvim", opts = {}, config = function() require("neodev").setup() end },
     "williamboman/mason-lspconfig.nvim",
-    "nvim-tree/nvim-tree.lua",
+    {"nvim-tree/nvim-tree.lua", config = function() require("nvim-tree").setup() end},
     "neovim/nvim-lspconfig",
     "mfussenegger/nvim-dap",
     "milisims/nvim-luaref",
     "folke/which-key.nvim",
     "folke/trouble.nvim",
-    "folke/neoconf.nvim",
-    { "folke/neodev.nvim",        opts = {} },
     "github/copilot.vim",
     { "ellisonleao/gruvbox.nvim", priority = 1000 },
     "ms-jpq/coq_nvim",
@@ -78,8 +78,8 @@ require("lazy").setup({
     { "junegunn/fzf", run = "./install --all" },
     "junegunn/fzf.vim",
     "tpope/vim-fugitive",
-    "lewis6991/gitsigns.nvim",
-    "xiyaowong/transparent.nvim",
+    {"lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end},
+    {"xiyaowong/transparent.nvim", config = function() require("transparent").setup() end},
     "SirVer/ultisnips",
     "honza/vim-snippets",
     "hrsh7th/cmp-nvim-lsp",
@@ -87,8 +87,15 @@ require("lazy").setup({
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
     "quangnguyen30192/cmp-nvim-ultisnips",
-    {"akinsho/bufferline.nvim", version="*", dependencies = {"nvim-tree/nvim-web-devicons"}},
-    "numToStr/Comment.nvim",
+    {
+        "akinsho/bufferline.nvim",
+        version="*",
+        dependencies = {"nvim-tree/nvim-web-devicons"},
+        config = function()
+            require("bufferline").setup{}
+        end,
+    },
+    {"numToStr/Comment.nvim", config = function () require('Comment').setup() end },
     {
         "kylechui/nvim-surround",
         version = "*",
@@ -102,8 +109,6 @@ require("lazy").setup({
         path="~/Projects"
     },
 })
-
-require("bufferline").setup{}
 
 local cmp = require("cmp")
 
@@ -133,11 +138,7 @@ cmp.setup({
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require("mason").setup()
-require("neoconf").setup({})
-require("neodev").setup({})
 require("mason-lspconfig").setup()
-
 require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
@@ -148,14 +149,6 @@ require("mason-lspconfig").setup_handlers {
         }
     end,
 }
-
-require("Comment").setup()
-
-require("nvim-tree").setup()
-
-require('gitsigns').setup()
-
-require("transparent").setup()
 
 -- nvim tree keybindings
 vim.keymap.set('n', '<space>e', ':NvimTreeFindFileToggle<CR>')

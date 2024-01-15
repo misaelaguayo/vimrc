@@ -10,6 +10,9 @@ vim.opt.number = true
 vim.opt.diffopt:append {'vertical'}
 vim.opt.fixeol = false
 
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
 vim.cmd('filetype plugin indent on')
 vim.cmd('syntax on')
 
@@ -28,17 +31,19 @@ local function map(mode, combo, action, opts)
 end
 
 vim.keymap.set('n', '<CR>', ':noh<CR><CR>', { noremap = true })
-vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', { noremap = true })
 vim.keymap.set('n', '<C-f>', ':Files<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>f', ':Rg<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>w', ':set wrap!<CR>', { noremap = true })
 
+-- buffers
+vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', { noremap = true })
+vim.keymap.set('n', '<space>bd', ':bdelete<CR>', { noremap = true })
+vim.keymap.set('n', '<space>bn', ':bnext<CR>', { noremap = true })
+vim.keymap.set('n', '<space>bp', ':bprevious<CR>', { noremap = true })
+
 -- disable netrw at the very
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -82,6 +87,7 @@ require("lazy").setup({
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
     "quangnguyen30192/cmp-nvim-ultisnips",
+    {"akinsho/bufferline.nvim", version="*", dependencies = {"nvim-tree/nvim-web-devicons"}},
     "numToStr/Comment.nvim",
     {
         "kylechui/nvim-surround",
@@ -96,6 +102,8 @@ require("lazy").setup({
         path="~/Projects"
     },
 })
+
+require("bufferline").setup{}
 
 local cmp = require("cmp")
 

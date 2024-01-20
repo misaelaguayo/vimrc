@@ -22,18 +22,11 @@ vim.opt.expandtab = true
 
 vim.opt.laststatus = 2
 
-local function map(mode, combo, action, opts)
-    local options = { noremap = true }
-    if opts then
-        options = vim.tbl_extend('force', options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, combo, action, options)
-end
-
 vim.keymap.set('n', '<CR>', ':noh<CR><CR>', { noremap = true })
 vim.keymap.set('n', '<C-f>', ':Files<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>f', ':Rg<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>w', ':set wrap!<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>c', ':cclose<CR>', { noremap = true })
 
 -- buffers
 vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', { noremap = true })
@@ -96,6 +89,20 @@ require("lazy").setup({
         end,
     },
     {"numToStr/Comment.nvim", config = function () require('Comment').setup() end },
+    {
+        "princejoogie/chafa.nvim", 
+        dependencies = {"nvim-lua/plenary.nvim", "m00qek/baleia.nvim"}},
+        config = function()
+            require("chafa").setup({
+                render = {
+                    min_padding = 5,
+                    show_label = true,
+                },
+                events = {
+                    update_on_nvim_resize = true,
+                },
+            })
+        end,
     {
         "kylechui/nvim-surround",
         version = "*",

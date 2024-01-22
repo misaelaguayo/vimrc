@@ -33,6 +33,7 @@ vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', { noremap = true })
 vim.keymap.set('n', '<space>bd', ':bdelete<CR>', { noremap = true })
 vim.keymap.set('n', '<space>bn', ':bnext<CR>', { noremap = true })
 vim.keymap.set('n', '<space>bp', ':bprevious<CR>', { noremap = true })
+vim.keymap.set('n', '<space>bb', ':BufferLineCloseOthers<CR>', { noremap = true })
 
 -- disable netrw at the very
 vim.g.loaded_netrw = 1

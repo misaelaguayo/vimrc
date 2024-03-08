@@ -19,6 +19,8 @@
   # environment.
   home.packages = [
     pkgs.fnm
+    pkgs.yarn-berry
+    pkgs.ripgrep
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

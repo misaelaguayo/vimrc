@@ -1,10 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  fonts.fontconfig.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "misael";
-  home.homeDirectory = "/Users/misael";
+  home.username = "misaelaguayo";
+  home.homeDirectory = "/Users/misaelaguayo";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -17,10 +18,12 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     pkgs.fnm
     pkgs.yarn-berry
     pkgs.ripgrep
+    pkgs.alacritty
+    nerdfonts
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

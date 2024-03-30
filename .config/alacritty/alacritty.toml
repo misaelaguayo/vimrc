@@ -17,3 +17,6 @@ style = "Regular"
 
 [window]
 opacity = 0.95
+
+[shell]
+program = "/Users/misaelaguayo/.nix-profile/bin/nu"

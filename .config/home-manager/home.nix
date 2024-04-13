@@ -23,6 +23,7 @@
     pkgs.yarn-berry
     pkgs.ripgrep
     pkgs.alacritty
+    pkgs.dotnet-sdk_8
     nerdfonts
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

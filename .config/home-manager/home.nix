@@ -20,7 +20,7 @@
   # environment.
   home.packages = with pkgs; [
     pkgs.fnm
-    pkgs.yarn-berry
+    pkgs.corepack_21
     pkgs.ripgrep
     pkgs.alacritty
     pkgs.dotnet-sdk_8

@@ -50,7 +50,6 @@ keybinds {
         bind "l" "Right" { MovePane "Right"; }
     }
     tab {
-        unbind "Ctrl t"
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "h" "Left" "Up" "k" { GoToPreviousTab; }
         bind "l" "Right" "Down" "j" { GoToNextTab; }
@@ -196,12 +195,12 @@ plugins {
 //    - true
 //    - false (Default)
 //
-simplified_ui true
+// simplified_ui true
 
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
-// default_shell "fish"
+default_shell ".nix-profile/bin/nu"
 
 // Choose the path to override cwd that zellij will use for opening new panes
 //

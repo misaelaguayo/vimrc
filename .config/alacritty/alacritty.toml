@@ -1,4 +1,4 @@
-working_directory   = "Projects"
+live_config_reload = true
 
 [font]
 size = 13.0
@@ -19,4 +19,7 @@ style = "Regular"
 opacity = 0.95
 
 [shell]
-program = "/Users/misaelaguayo/.nix-profile/bin/nu"
+program = ".nix-profile/bin/nu"
+
+[selection]
+save_to_clipboard = true

@@ -4,8 +4,8 @@
   fonts.fontconfig.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "misaelaguayo";
-  home.homeDirectory = "/Users/misaelaguayo";
+  home.username = builtins.getEnv "USER";
+  home.homeDirectory = builtins.getEnv "HOME";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -20,10 +20,12 @@
   # environment.
   home.packages = with pkgs; [
     pkgs.fnm
-    pkgs.corepack_21
+    pkgs.corepack_22
     pkgs.ripgrep
     pkgs.alacritty
-    pkgs.dotnet-sdk_8
+    pkgs.azure-cli
+    pkgs.nushell
+    # pkgs.dotnet-sdk_8
     nerdfonts
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

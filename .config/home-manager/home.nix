@@ -25,7 +25,8 @@
     pkgs.alacritty
     pkgs.azure-cli
     pkgs.nushell
-    # pkgs.dotnet-sdk_8
+    pkgs.dotnet-sdk_8
+    pkgs.unzip
     nerdfonts
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

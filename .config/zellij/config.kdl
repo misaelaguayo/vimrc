@@ -188,7 +188,7 @@ plugins {
 //   - detach (Default)
 //   - quit
 //
- on_force_close "quit"
+ on_force_close "detach"
 
 //  Send a request for a simplified ui (without arrow fonts) to plugins
 //  Options:

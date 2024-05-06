@@ -74,7 +74,6 @@ require("lazy").setup({
     "milisims/nvim-luaref",
     "folke/which-key.nvim",
     "folke/trouble.nvim",
-    "github/copilot.vim",
     { "ellisonleao/gruvbox.nvim", priority = 1000 },
     "ms-jpq/coq_nvim",
     "ms-jpq/coq.artifacts",

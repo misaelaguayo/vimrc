@@ -20,7 +20,7 @@
   # environment.
   home.packages = with pkgs; [
     pkgs.fnm
-    pkgs.corepack_22
+    pkgs.corepack_latest
     pkgs.ripgrep
     pkgs.alacritty
     pkgs.azure-cli

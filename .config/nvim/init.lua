@@ -54,7 +54,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    {"misaelaguayo/markdown.nvim", dev=true, opts={name = "misael"}},
+    {"misaelaguayo/markdown.nvim", dev=true, opts={name = "misael"}, dependencies={"nvim-lua/plenary.nvim", "m00qek/baleia.nvim", "princejoogie/chafa.nvim"}},
     { "williamboman/mason.nvim", config = function() require("mason").setup() end },
     {"folke/neoconf.nvim", config = function() require("neoconf").setup() end},
     { "folke/neodev.nvim", opts = {}, config = function() require("neodev").setup() end },
@@ -91,8 +91,8 @@ require("lazy").setup({
     },
     {"numToStr/Comment.nvim", config = function () require('Comment').setup() end },
     {
-        "princejoogie/chafa.nvim", 
-        dependencies = {"nvim-lua/plenary.nvim", "m00qek/baleia.nvim"}},
+        "princejoogie/chafa.nvim",
+        dependencies = {"nvim-lua/plenary.nvim", "m00qek/baleia.nvim"},
         config = function()
             require("chafa").setup({
                 render = {
@@ -104,6 +104,7 @@ require("lazy").setup({
                 },
             })
         end,
+    },
     {
         "kylechui/nvim-surround",
         version = "*",

@@ -27,7 +27,7 @@
     pkgs.nushell
     pkgs.dotnet-sdk_8
     pkgs.unzip
-    nerdfonts
+    pkgs.chafa
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

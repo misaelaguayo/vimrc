@@ -28,6 +28,11 @@
     pkgs.dotnet-sdk_8
     pkgs.unzip
     pkgs.chafa
+    pkgs.stack
+    pkgs.texliveFull
+    pkgs.imagemagick
+    pkgs.ghostscript
+    (pkgs.nerdfonts.override { fonts = ["Hack"]; })
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

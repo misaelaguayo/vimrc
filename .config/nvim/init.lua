@@ -54,7 +54,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    {"misaelaguayo/markdown.nvim", dev=true, opts={name = "misael"}, dependencies={"nvim-lua/plenary.nvim", "m00qek/baleia.nvim", "princejoogie/chafa.nvim"}},
+    {
+        "misaelaguayo/markdown.nvim",
+        dev=true,
+        opts={
+            markdown_preview_path = "/Users/misaelaguayo/Projects/markdown-preview-haskell/.stack-work/dist/aarch64-osx/ghc-9.4.7/build/markdown-preview-haskell-exe/markdown-preview-haskell-exe"},
+            dependencies={
+                "nvim-lua/plenary.nvim",
+                "m00qek/baleia.nvim",
+                "princejoogie/chafa.nvim"}
+            },
     { "williamboman/mason.nvim", config = function() require("mason").setup() end },
     {"folke/neoconf.nvim", config = function() require("neoconf").setup() end},
     { "folke/neodev.nvim", opts = {}, config = function() require("neodev").setup() end },

@@ -1,6 +1,13 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
+  nixpkgs = {
+    config = {
+     allowUnfree = true;
+     allowUnfreePredicate = (_: true);
+    };
+  };
+
   fonts.fontconfig.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -25,7 +32,6 @@
     pkgs.alacritty
     pkgs.azure-cli
     pkgs.nushell
-    pkgs.dotnet-sdk_8
     pkgs.unzip
     pkgs.chafa
     pkgs.stack
@@ -33,6 +39,9 @@
     pkgs.imagemagick
     pkgs.ghostscript
     (pkgs.nerdfonts.override { fonts = ["Hack"]; })
+    pkgs.watchexec
+    pkgs.delta
+    pkgs.ngrok
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

@@ -68,7 +68,11 @@ require("lazy").setup({
     {"folke/neoconf.nvim", config = function() require("neoconf").setup() end},
     { "folke/neodev.nvim", opts = {}, config = function() require("neodev").setup() end },
     "williamboman/mason-lspconfig.nvim",
-    {"nvim-tree/nvim-tree.lua", config = function() require("nvim-tree").setup() end},
+    {"nvim-tree/nvim-tree.lua", config = function() require("nvim-tree").setup({
+        view = { width = 50, },
+        }) 
+        end
+    },
     "neovim/nvim-lspconfig",
     "mfussenegger/nvim-dap",
     "milisims/nvim-luaref",
@@ -88,6 +92,7 @@ require("lazy").setup({
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
+    "sindrets/diffview.nvim",
     "quangnguyen30192/cmp-nvim-ultisnips",
     {
         "akinsho/bufferline.nvim",

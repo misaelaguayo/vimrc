@@ -42,6 +42,12 @@
     pkgs.watchexec
     pkgs.delta
     pkgs.ngrok
+    pkgs.binwalk
+    pkgs.binutils
+    pkgs.tmux
+    pkgs.git
+    pkgs.libgcc
+    pkgs.zoxide
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

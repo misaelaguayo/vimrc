@@ -51,6 +51,7 @@
     pkgs.rustup
     pkgs.pkg-config
     pkgs.bun
+    pkgs.gh
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

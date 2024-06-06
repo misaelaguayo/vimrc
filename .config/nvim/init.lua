@@ -61,6 +61,7 @@ require("lazy").setup({
             markdown_preview_path = "/Users/misaelaguayo/Projects/markdown-preview-haskell/.stack-work/dist/aarch64-osx/ghc-9.4.7/build/markdown-preview-haskell-exe/markdown-preview-haskell-exe"},
             dependencies={
                 "nvim-lua/plenary.nvim",
+                "MunifTanjim/nui.nvim",
                 "m00qek/baleia.nvim",
                 "princejoogie/chafa.nvim"}
             },
@@ -70,10 +71,11 @@ require("lazy").setup({
     "williamboman/mason-lspconfig.nvim",
     {"nvim-tree/nvim-tree.lua", config = function() require("nvim-tree").setup({
         view = { width = 50, },
-        }) 
+        })
         end
     },
     "neovim/nvim-lspconfig",
+    {"oknozor/illumination", build = {"cd ~/.illumination","./install.sh"} },
     "mfussenegger/nvim-dap",
     "milisims/nvim-luaref",
     "folke/which-key.nvim",
@@ -109,8 +111,8 @@ require("lazy").setup({
         config = function()
             require("chafa").setup({
                 render = {
-                    min_padding = 5,
-                    show_label = true,
+                    min_padding = 0,
+                    show_label = false,
                 },
                 events = {
                     update_on_nvim_resize = true,

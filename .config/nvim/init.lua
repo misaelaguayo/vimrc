@@ -57,14 +57,15 @@ require("lazy").setup({
     {
         "misaelaguayo/markdown.nvim",
         dev=true,
-        opts={
-            markdown_preview_path = "/Users/misaelaguayo/Projects/markdown-preview-haskell/.stack-work/dist/aarch64-osx/ghc-9.4.7/build/markdown-preview-haskell-exe/markdown-preview-haskell-exe"},
-            dependencies={
-                "nvim-lua/plenary.nvim",
-                "MunifTanjim/nui.nvim",
-                "m00qek/baleia.nvim",
-                "princejoogie/chafa.nvim"}
-            },
+        -- opts={
+        --     markdown_preview_path = "/Users/misaelaguayo/Projects/markdown-preview-haskell/.stack-work/dist/aarch64-osx/ghc-9.4.7/build/markdown-preview-haskell-exe/markdown-preview-haskell-exe"
+        --     },
+        -- dependencies={
+        --     "nvim-lua/plenary.nvim",
+        --     "MunifTanjim/nui.nvim",
+        --     "m00qek/baleia.nvim",
+        --     "princejoogie/chafa.nvim"}
+    },
     { "williamboman/mason.nvim", config = function() require("mason").setup() end },
     {"folke/neoconf.nvim", config = function() require("neoconf").setup() end},
     { "folke/neodev.nvim", opts = {}, config = function() require("neodev").setup() end },
@@ -80,7 +81,18 @@ require("lazy").setup({
     "milisims/nvim-luaref",
     "folke/which-key.nvim",
     "folke/trouble.nvim",
-    { "ellisonleao/gruvbox.nvim", priority = 1000 },
+    -- { "ellisonleao/gruvbox.nvim", priority = 1000 },
+    {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+    },
+    {
+    'nvim-lualine/lualine.nvim',
+    config = function() require('lualine').setup({options = {theme = 'tokyonight'}}) end,
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
     "ms-jpq/coq_nvim",
     "ms-jpq/coq.artifacts",
     { "junegunn/fzf", run = "./install --all" },
@@ -239,4 +251,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-vim.cmd [[colorscheme gruvbox]]
+-- vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme tokyonight]]

@@ -29,7 +29,6 @@
     pkgs.fnm
     pkgs.corepack_latest
     pkgs.ripgrep
-    pkgs.alacritty
     pkgs.azure-cli
     pkgs.nushell
     pkgs.unzip
@@ -79,6 +78,10 @@
   };
 
   programs.zellij = {
+    enable = true;
+  };
+
+  programs.alacritty = {
     enable = true;
   };
 

@@ -23,3 +23,6 @@ program = ".nix-profile/bin/nu"
 
 [selection]
 save_to_clipboard = true
+
+[env]
+XDG_CONFIG_HOME = "/Users/misaelaguayo/.config"

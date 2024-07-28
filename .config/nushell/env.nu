@@ -97,5 +97,9 @@ $env.NU_PLUGIN_DIRS = [
 # path add ($env.HOME | path join ".local" "bin")
 # $env.PATH = ($env.PATH | uniq)
 
+$env.PATH = ($env.PATH | split row (char esep) | prepend ".nix-profile/bin")
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/nix/var/nix/profiles/default/bin')
+$env.EDITOR = nvim
+
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')

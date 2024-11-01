@@ -1,5 +1,14 @@
 { pkgs, ... }:
 
+let pkgs_dotnet8201 = import (pkgs.fetchFromGitHub {
+    owner = "NixOS";
+    repo = "nixpkgs";
+    rev = "0468d889c64d964a42e244ffd24b4944b0edfb60";
+    sha256 = "sha256-Qltg56IL0yhQhSUA1yL7eOlqN4meZ/037VYFUOrBoxU=";
+  }) {
+    inherit (pkgs) system;
+  };
+in
 {
   nixpkgs = {
     config = {
@@ -29,7 +38,8 @@
     pkgs.fnm
     pkgs.corepack_latest
     pkgs.ripgrep
-    pkgs.azure-cli
+    pkgs.alacritty
+    # pkgs.azure-cli
     pkgs.nushell
     pkgs.unzip
     pkgs.chafa
@@ -51,6 +61,17 @@
     pkgs.pkg-config
     pkgs.bun
     pkgs.gh
+    pkgs.netcoredbg
+    pkgs.docker-compose
+    pkgs.docker
+    pkgs.nuget
+    pkgs.nodejs_22
+    pkgs.pandoc
+    pkgs.jujutsu
+    pkgs.protobuf
+    pkgs.git-credential-manager
+    pkgs.go
+    pkgs_dotnet8201.dotnetCorePackages.sdk_8_0
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

@@ -57,9 +57,9 @@ require("lazy").setup({
     {
         "misaelaguayo/markdown.nvim",
         dev=true,
-        -- opts={
-        --     markdown_preview_path = "/Users/misaelaguayo/Projects/markdown-preview-haskell/.stack-work/dist/aarch64-osx/ghc-9.4.7/build/markdown-preview-haskell-exe/markdown-preview-haskell-exe"
-        --     },
+        opts={
+            name = "Misael"
+            },
         -- dependencies={
         --     "nvim-lua/plenary.nvim",
         --     "MunifTanjim/nui.nvim",
@@ -95,8 +95,8 @@ require("lazy").setup({
     },
     "ms-jpq/coq_nvim",
     "ms-jpq/coq.artifacts",
-    { "junegunn/fzf", run = "./install --all" },
-    "junegunn/fzf.vim",
+    { "junegunn/fzf"},
+    {"junegunn/fzf.vim"},
     "tpope/vim-fugitive",
     {"lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end},
     {"xiyaowong/transparent.nvim", config = function() require("transparent").setup() end},
@@ -140,6 +140,7 @@ require("lazy").setup({
             require("nvim-surround").setup({})
         end,
     },
+    "github/copilot.vim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
     dev = {
         path="~/Projects"
@@ -199,10 +200,14 @@ require("mason-lspconfig").setup_handlers {
     -- and will be called for each installed server that doesn't have
     -- a dedicated handler.
     function(server_name)  -- default handler (optional)
-        require("lspconfig")[server_name].setup {
+        require('lspconfig')[server_name].setup {
             capabilities = capabilities,
         }
     end,
+}
+
+require("lspconfig").lua_ls.setup {
+    capabilities = capabilities
 }
 
 -- nvim tree keybindings

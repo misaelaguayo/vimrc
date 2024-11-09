@@ -7,7 +7,7 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.background = 'dark'
 vim.opt.number = true
-vim.opt.diffopt:append {'vertical'}
+vim.opt.diffopt:append { 'vertical' }
 vim.opt.fixeol = false
 
 -- set termguicolors to enable highlight groups
@@ -54,116 +54,128 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    {
-        "misaelaguayo/markdown.nvim",
-        dev=true,
-        opts={
-            name = "Misael"
-            },
-        -- dependencies={
-        --     "nvim-lua/plenary.nvim",
-        --     "MunifTanjim/nui.nvim",
-        --     "m00qek/baleia.nvim",
-        --     "princejoogie/chafa.nvim"}
+    spec = {
+        {
+            -- "misaelaguayo/markdown.nvim",
+            -- dev=true,
+            -- opts={
+            --     name = "Misael"
+            --     },
+            -- dependencies={
+            --     "nvim-lua/plenary.nvim",
+            --     "MunifTanjim/nui.nvim",
+            --     "m00qek/baleia.nvim",
+            --     "princejoogie/chafa.nvim"}
+        },
+        { "williamboman/mason.nvim", config = function() require("mason").setup() end },
+        { "folke/neoconf.nvim",      config = function() require("neoconf").setup() end },
+        {
+            "folke/neodev.nvim",
+            opts = {},
+            config = function()
+                require(
+                    "neodev").setup()
+            end
+        },
+        "williamboman/mason-lspconfig.nvim",
+        {
+            "nvim-tree/nvim-tree.lua",
+            config = function()
+                require("nvim-tree").setup({
+                    view = { width = 50, },
+                })
+            end
+        },
+        "neovim/nvim-lspconfig",
+        { "oknozor/illumination", build = { "cd ~/.illumination", "./install.sh" } },
+        "mfussenegger/nvim-dap",
+        "milisims/nvim-luaref",
+        "folke/which-key.nvim",
+        "folke/trouble.nvim",
+        -- { "ellisonleao/gruvbox.nvim", priority = 1000 },
+        {
+            "folke/tokyonight.nvim",
+            lazy = false,
+            priority = 1000,
+            opts = {},
+        },
+        {
+            'nvim-lualine/lualine.nvim',
+            config = function() require('lualine').setup({ options = { theme = 'tokyonight' } }) end,
+            dependencies = { 'nvim-tree/nvim-web-devicons' }
+        },
+        "ms-jpq/coq_nvim",
+        "ms-jpq/coq.artifacts",
+        { "junegunn/fzf", dev = true },
+        { "junegunn/fzf.vim" },
+        "tpope/vim-fugitive",
+        { "lewis6991/gitsigns.nvim",    config = function() require("gitsigns").setup() end },
+        { "xiyaowong/transparent.nvim", config = function() require("transparent").setup() end },
+        "SirVer/ultisnips",
+        "honza/vim-snippets",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "hrsh7th/nvim-cmp",
+        "sindrets/diffview.nvim",
+        "quangnguyen30192/cmp-nvim-ultisnips",
+        {
+            "akinsho/bufferline.nvim",
+            version = "*",
+            dependencies = { "nvim-tree/nvim-web-devicons" },
+            config = function()
+                require("bufferline").setup {}
+            end,
+        },
+        { "numToStr/Comment.nvim", config = function() require('Comment').setup() end },
+        {
+            "princejoogie/chafa.nvim",
+            dependencies = { "nvim-lua/plenary.nvim", "m00qek/baleia.nvim" },
+            config = function()
+                require("chafa").setup({
+                    render = {
+                        min_padding = 0,
+                        show_label = false,
+                    },
+                    events = {
+                        update_on_nvim_resize = true,
+                    },
+                })
+            end,
+        },
+        {
+            "kylechui/nvim-surround",
+            version = "*",
+            event = "VeryLazy",
+            config = function()
+                require("nvim-surround").setup({})
+            end,
+        },
+        "github/copilot.vim",
     },
-    { "williamboman/mason.nvim", config = function() require("mason").setup() end },
-    {"folke/neoconf.nvim", config = function() require("neoconf").setup() end},
-    { "folke/neodev.nvim", opts = {}, config = function() require("neodev").setup() end },
-    "williamboman/mason-lspconfig.nvim",
-    {"nvim-tree/nvim-tree.lua", config = function() require("nvim-tree").setup({
-        view = { width = 50, },
-        })
-        end
-    },
-    "neovim/nvim-lspconfig",
-    {"oknozor/illumination", build = {"cd ~/.illumination","./install.sh"} },
-    "mfussenegger/nvim-dap",
-    "milisims/nvim-luaref",
-    "folke/which-key.nvim",
-    "folke/trouble.nvim",
-    -- { "ellisonleao/gruvbox.nvim", priority = 1000 },
-    {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {},
-    },
-    {
-    'nvim-lualine/lualine.nvim',
-    config = function() require('lualine').setup({options = {theme = 'tokyonight'}}) end,
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
-    },
-    "ms-jpq/coq_nvim",
-    "ms-jpq/coq.artifacts",
-    { "junegunn/fzf"},
-    {"junegunn/fzf.vim"},
-    "tpope/vim-fugitive",
-    {"lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end},
-    {"xiyaowong/transparent.nvim", config = function() require("transparent").setup() end},
-    "SirVer/ultisnips",
-    "honza/vim-snippets",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/nvim-cmp",
-    "sindrets/diffview.nvim",
-    "quangnguyen30192/cmp-nvim-ultisnips",
-    {
-        "akinsho/bufferline.nvim",
-        version="*",
-        dependencies = {"nvim-tree/nvim-web-devicons"},
-        config = function()
-            require("bufferline").setup{}
-        end,
-    },
-    {"numToStr/Comment.nvim", config = function () require('Comment').setup() end },
-    {
-        "princejoogie/chafa.nvim",
-        dependencies = {"nvim-lua/plenary.nvim", "m00qek/baleia.nvim"},
-        config = function()
-            require("chafa").setup({
-                render = {
-                    min_padding = 0,
-                    show_label = false,
-                },
-                events = {
-                    update_on_nvim_resize = true,
-                },
-            })
-        end,
-    },
-    {
-        "kylechui/nvim-surround",
-        version = "*",
-        event = "VeryLazy",
-        config = function()
-            require("nvim-surround").setup({})
-        end,
-    },
-    "github/copilot.vim",
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
     dev = {
-        path="~/Projects"
+        path = "~/Projects"
     },
 })
 
 local dap = require('dap')
 
 dap.adapters.coreclr = {
-  type = 'executable',
-  command = '/usr/bin/netcoredbg',
-  args = {'--interpreter=vscode'}
+    type = 'executable',
+    command = '/usr/bin/netcoredbg',
+    args = { '--interpreter=vscode' }
 }
 
 dap.configurations.cs = {
-  {
-    type = "coreclr",
-    name = "launch - netcoredbg",
-    request = "launch",
-    program = function()
-        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug', 'file')
-    end,
-  },
+    {
+        type = "coreclr",
+        name = "launch - netcoredbg",
+        request = "launch",
+        program = function()
+            return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug', 'file')
+        end,
+    },
 }
 
 local cmp = require("cmp")
@@ -199,7 +211,7 @@ require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
     -- a dedicated handler.
-    function(server_name)  -- default handler (optional)
+    function(server_name) -- default handler (optional)
         require('lspconfig')[server_name].setup {
             capabilities = capabilities,
         }

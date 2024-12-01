@@ -87,7 +87,6 @@ require("lazy").setup({
             end
         },
         "neovim/nvim-lspconfig",
-        { "oknozor/illumination", build = { "cd ~/.illumination", "./install.sh" } },
         "mfussenegger/nvim-dap",
         "milisims/nvim-luaref",
         "folke/which-key.nvim",

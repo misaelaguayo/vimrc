@@ -38,40 +38,30 @@ in
     pkgs.fnm
     pkgs.corepack_latest
     pkgs.ripgrep
-    pkgs.alacritty
-    # pkgs.azure-cli
     pkgs.nushell
     pkgs.unzip
     pkgs.chafa
     pkgs.stack
-    pkgs.texliveFull
     pkgs.imagemagick
     pkgs.ghostscript
-    (pkgs.nerdfonts.override { fonts = ["Hack"]; })
+    pkgs.nerd-fonts.hack
     pkgs.watchexec
-    pkgs.delta
     pkgs.ngrok
-    pkgs.binwalk
-    pkgs.binutils
     pkgs.tmux
     pkgs.git
     pkgs.zoxide
-    pkgs.poppler_utils
     pkgs.rustup
     pkgs.pkg-config
     pkgs.bun
     pkgs.gh
-    pkgs.netcoredbg
-    pkgs.docker-compose
-    pkgs.docker
-    pkgs.nuget
-    pkgs.nodejs_22
     pkgs.pandoc
     pkgs.jujutsu
-    pkgs.protobuf
     pkgs.git-credential-manager
     pkgs.go
     pkgs_dotnet8201.dotnetCorePackages.sdk_8_0
+    # # Adds the 'hello' command to your environment. It prints a friendly
+    pkgs.oh-my-posh
+    pkgs.jujutsu
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

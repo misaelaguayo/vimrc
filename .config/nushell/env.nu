@@ -99,7 +99,10 @@ $env.NU_PLUGIN_DIRS = [
 
 $env.PATH = ($env.PATH | split row (char esep) | prepend ".nix-profile/bin")
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/nix/var/nix/profiles/default/bin')
-$env.EDITOR = nvim
+$env.PATH = ($env.PATH | split row (char esep) | prepend './Projects/depot_tools')
+$env.EDITOR = "nvim"
 
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
+
+oh-my-posh init nu --config ~/.config/oh-my-posh/illusi0n.omp.json

@@ -7,7 +7,7 @@ vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.background = 'dark'
 vim.opt.number = true
-vim.opt.diffopt:append { 'vertical' }
+vim.opt.diffopt:append {'vertical'}
 vim.opt.fixeol = false
 
 -- set termguicolors to enable highlight groups
@@ -39,6 +39,10 @@ vim.keymap.set('n', '<space>bb', ':BufferLineCloseOthers<CR>', { noremap = true 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- debugging
+vim.keymap.set('n', '<space>c', ':lua require"dap".continue()<CR>', { noremap = true })
+vim.keymap.set('n', '<space>t', ':lua require"dap".toggle_breakpoint()<CR>', { noremap = true })
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -54,127 +58,139 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    spec = {
-        {
-            -- "misaelaguayo/markdown.nvim",
-            -- dev=true,
-            -- opts={
-            --     name = "Misael"
-            --     },
-            -- dependencies={
-            --     "nvim-lua/plenary.nvim",
-            --     "MunifTanjim/nui.nvim",
-            --     "m00qek/baleia.nvim",
-            --     "princejoogie/chafa.nvim"}
-        },
-        { "williamboman/mason.nvim", config = function() require("mason").setup() end },
-        { "folke/neoconf.nvim",      config = function() require("neoconf").setup() end },
-        {
-            "folke/neodev.nvim",
-            opts = {},
-            config = function()
-                require(
-                    "neodev").setup()
-            end
-        },
-        "williamboman/mason-lspconfig.nvim",
-        {
-            "nvim-tree/nvim-tree.lua",
-            config = function()
-                require("nvim-tree").setup({
-                    view = { width = 50, },
-                })
-            end
-        },
-        "neovim/nvim-lspconfig",
-        "mfussenegger/nvim-dap",
-        "milisims/nvim-luaref",
-        "folke/which-key.nvim",
-        "folke/trouble.nvim",
-        -- { "ellisonleao/gruvbox.nvim", priority = 1000 },
-        {
-            "folke/tokyonight.nvim",
-            lazy = false,
-            priority = 1000,
-            opts = {},
-        },
-        {
-            'nvim-lualine/lualine.nvim',
-            config = function() require('lualine').setup({ options = { theme = 'tokyonight' } }) end,
-            dependencies = { 'nvim-tree/nvim-web-devicons' }
-        },
-        "ms-jpq/coq_nvim",
-        "ms-jpq/coq.artifacts",
-        { "junegunn/fzf", dev = true },
-        { "junegunn/fzf.vim" },
-        "tpope/vim-fugitive",
-        { "lewis6991/gitsigns.nvim",    config = function() require("gitsigns").setup() end },
-        { "xiyaowong/transparent.nvim", config = function() require("transparent").setup() end },
-        "SirVer/ultisnips",
-        "honza/vim-snippets",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "hrsh7th/nvim-cmp",
-        "sindrets/diffview.nvim",
-        "quangnguyen30192/cmp-nvim-ultisnips",
-        {
-            "akinsho/bufferline.nvim",
-            version = "*",
-            dependencies = { "nvim-tree/nvim-web-devicons" },
-            config = function()
-                require("bufferline").setup {}
-            end,
-        },
-        { "numToStr/Comment.nvim", config = function() require('Comment').setup() end },
-        {
-            "princejoogie/chafa.nvim",
-            dependencies = { "nvim-lua/plenary.nvim", "m00qek/baleia.nvim" },
-            config = function()
-                require("chafa").setup({
-                    render = {
-                        min_padding = 0,
-                        show_label = false,
-                    },
-                    events = {
-                        update_on_nvim_resize = true,
-                    },
-                })
-            end,
-        },
-        {
-            "kylechui/nvim-surround",
-            version = "*",
-            event = "VeryLazy",
-            config = function()
-                require("nvim-surround").setup({})
-            end,
-        },
-        "github/copilot.vim",
+    "github/copilot.vim",
+    {
+        "misaelaguayo/markdown.nvim",
+        dev=true,
+        lazy=false,
+        -- opts={
+        --     markdown_preview_path = "/Users/misaelaguayo/Projects/markdown-preview-haskell/.stack-work/dist/aarch64-osx/ghc-9.4.7/build/markdown-preview-haskell-exe/markdown-preview-haskell-exe"
+        --     },
+        -- dependencies={
+        --     "nvim-lua/plenary.nvim",
+        --     "MunifTanjim/nui.nvim",
+        --     "m00qek/baleia.nvim",
+        --     "princejoogie/chafa.nvim"}
+    },
+    { "williamboman/mason.nvim", config = function() require("mason").setup() end },
+    {"folke/neoconf.nvim", config = function() require("neoconf").setup() end},
+    { "folke/neodev.nvim", opts = {}, config = function() require("neodev").setup() end },
+    "williamboman/mason-lspconfig.nvim",
+    {"nvim-tree/nvim-tree.lua", config = function() require("nvim-tree").setup({
+        view = { width = 50, },
+        })
+        end
+    },
+    "neovim/nvim-lspconfig",
+    {"oknozor/illumination", build = {"cd ~/.illumination","./install.sh"} },
+    "mfussenegger/nvim-dap",
+    "milisims/nvim-luaref",
+    "folke/which-key.nvim",
+    "folke/trouble.nvim",
+    -- { "ellisonleao/gruvbox.nvim", priority = 1000 },
+    {
+      "folke/tokyonight.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+    },
+    {
+    'nvim-lualine/lualine.nvim',
+    config = function() require('lualine').setup({options = {theme = 'tokyonight'}}) end,
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+    "ms-jpq/coq_nvim",
+    "ms-jpq/coq.artifacts",
+    { "junegunn/fzf", run = "./install --all" },
+    "junegunn/fzf.vim",
+    "tpope/vim-fugitive",
+    {"lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end},
+    {"xiyaowong/transparent.nvim", config = function() require("transparent").setup() end},
+    "SirVer/ultisnips",
+    "honza/vim-snippets",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/nvim-cmp",
+    "sindrets/diffview.nvim",
+    "quangnguyen30192/cmp-nvim-ultisnips",
+    {
+        "akinsho/bufferline.nvim",
+        version="*",
+        dependencies = {"nvim-tree/nvim-web-devicons"},
+        config = function()
+            require("bufferline").setup{}
+        end,
+    },
+    {"numToStr/Comment.nvim", config = function () require('Comment').setup() end },
+    {
+        "princejoogie/chafa.nvim",
+        dependencies = {"nvim-lua/plenary.nvim", "m00qek/baleia.nvim"},
+        config = function()
+            require("chafa").setup({
+                render = {
+                    min_padding = 0,
+                    show_label = false,
+                },
+                events = {
+                    update_on_nvim_resize = true,
+                },
+            })
+        end,
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "*",
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({})
+        end,
     },
     build = ":MasonUpdate", -- :MasonUpdate updates registry contents
     dev = {
-        path = "~/Projects"
+        path="~/Projects"
     },
 })
 
 local dap = require('dap')
 
 dap.adapters.coreclr = {
-    type = 'executable',
-    command = '/usr/bin/netcoredbg',
-    args = { '--interpreter=vscode' }
+  type = 'executable',
+  command = '/usr/bin/netcoredbg',
+  args = {'--interpreter=vscode'}
 }
 
 dap.configurations.cs = {
+  {
+    type = "coreclr",
+    name = "launch - netcoredbg",
+    request = "launch",
+    program = function()
+        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug', 'file')
+    end,
+  },
+}
+
+dap.adapters.lldb = {
+  type = 'executable',
+  command = 'lldb-vscode',
+  name = "lldb"
+}
+
+dap.configurations.rust = {
     {
-        type = "coreclr",
-        name = "launch - netcoredbg",
+        name = "Launch",
+        type = "lldb",
         request = "launch",
         program = function()
-            return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug', 'file')
+            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/' .. '')
         end,
-    },
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+        args = {},
+        initCommands = {},
+        runInTerminal = false
+    }
 }
 
 local cmp = require("cmp")
@@ -210,22 +226,18 @@ require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
     -- a dedicated handler.
-    function(server_name) -- default handler (optional)
-        require('lspconfig')[server_name].setup {
+    function(server_name)  -- default handler (optional)
+        require("lspconfig")[server_name].setup {
             capabilities = capabilities,
         }
     end,
-}
-
-require("lspconfig").lua_ls.setup {
-    capabilities = capabilities
 }
 
 -- nvim tree keybindings
 vim.keymap.set('n', '<space>e', ':NvimTreeFindFileToggle<CR>')
 
 -- transparent keybindings
-vim.keymap.set('n', '<space>t', ':TransparentToggle<CR>')
+-- vim.keymap.set('n', '<space>t', ':TransparentToggle<CR>')
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)

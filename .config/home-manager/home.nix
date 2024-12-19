@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
-let pkgs_dotnet8201 = import (pkgs.fetchFromGitHub {
+let pkgs_dotnet901 = import (pkgs.fetchFromGitHub {
     owner = "NixOS";
     repo = "nixpkgs";
-    rev = "0468d889c64d964a42e244ffd24b4944b0edfb60";
-    sha256 = "sha256-Qltg56IL0yhQhSUA1yL7eOlqN4meZ/037VYFUOrBoxU=";
+    rev = "4ba028e8856a32c10eded2e94785b62454fba032";
+    sha256 = "sha256-VN+HYd0swhTG61NuJphWokknOQ3IO+FDcnMurNP8P44=";
   }) {
     inherit (pkgs) system;
   };
@@ -38,6 +38,7 @@ in
     pkgs.fnm
     pkgs.corepack_latest
     pkgs.ripgrep
+    pkgs.alacritty
     pkgs.nushell
     pkgs.unzip
     pkgs.chafa
@@ -58,7 +59,15 @@ in
     pkgs.jujutsu
     pkgs.git-credential-manager
     pkgs.go
-    pkgs_dotnet8201.dotnetCorePackages.sdk_8_0
+    pkgs.delta
+    # pkgs_dotnet8201.dotnetCorePackages.sdk_8_0
+    # pkgs.dotnetCorePackages.sdk_7_0_1xx
+    # pkgs.dotnetCorePackages.sdk_9_0
+    pkgs_dotnet901.dotnetCorePackages.sdk_9_0
+    # pkgs.azure-functions-core-tools
+    pkgs.atuin
+    pkgs.powershell
+    # pkgs.qutebrowser
     # # Adds the 'hello' command to your environment. It prints a friendly
     pkgs.oh-my-posh
     pkgs.jujutsu
@@ -89,10 +98,6 @@ in
   };
 
   programs.zellij = {
-    enable = true;
-  };
-
-  programs.alacritty = {
     enable = true;
   };
 

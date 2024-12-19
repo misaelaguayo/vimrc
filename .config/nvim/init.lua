@@ -81,27 +81,42 @@ require("lazy").setup({
         })
         end
     },
+    {
+      "julienvincent/hunk.nvim",
+      cmd = { "DiffEditor" },
+      config = function()
+        require("hunk").setup({
+            dependencies={
+                "MunifTanjim/nui.nvim",
+            }
+        })
+      end,
+    },
+    "MunifTanjim/nui.nvim",
     "neovim/nvim-lspconfig",
     {"oknozor/illumination", build = {"cd ~/.illumination","./install.sh"} },
     "mfussenegger/nvim-dap",
     "milisims/nvim-luaref",
     "folke/which-key.nvim",
     "folke/trouble.nvim",
-    -- { "ellisonleao/gruvbox.nvim", priority = 1000 },
-    {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {},
-    },
+    -- { 'projekt0n/github-nvim-theme', name = 'github-theme' },
+    { "ellisonleao/gruvbox.nvim", priority = 1000 },
+    -- {
+    --   "folke/tokyonight.nvim",
+    --   lazy = false,
+    --   priority = 1000,
+    --   opts = {},
+    -- },
+    -- { "sainnhe/sonokai", priority = 1000 },
     {
     'nvim-lualine/lualine.nvim',
-    config = function() require('lualine').setup({options = {theme = 'tokyonight'}}) end,
+    -- config = function() require('lualine').setup({options = {theme = 'tokyonight'}}) end,
     dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
     "ms-jpq/coq_nvim",
     "ms-jpq/coq.artifacts",
-    { "junegunn/fzf", run = "./install --all" },
+    -- { "junegunn/fzf", run = "./install --all", tag="0.52.1" },
+    { "junegunn/fzf", run = "./install --all"},
     "junegunn/fzf.vim",
     "tpope/vim-fugitive",
     {"lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end},
@@ -156,7 +171,7 @@ local dap = require('dap')
 
 dap.adapters.coreclr = {
   type = 'executable',
-  command = '/usr/bin/netcoredbg',
+  command = 'netcoredbg',
   args = {'--interpreter=vscode'}
 }
 
@@ -166,7 +181,7 @@ dap.configurations.cs = {
     name = "launch - netcoredbg",
     request = "launch",
     program = function()
-        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug', 'file')
+        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
     end,
   },
 }
@@ -236,6 +251,32 @@ require("mason-lspconfig").setup_handlers {
 -- nvim tree keybindings
 vim.keymap.set('n', '<space>e', ':NvimTreeFindFileToggle<CR>')
 
+-- nvim dap keybindings
+vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
+vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
+vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
+vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
+vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
+vim.keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
+vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
+vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
+  require('dap.ui.widgets').hover()
+end)
+vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
+  require('dap.ui.widgets').preview()
+end)
+vim.keymap.set('n', '<Leader>df', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.frames)
+end)
+vim.keymap.set('n', '<Leader>ds', function()
+  local widgets = require('dap.ui.widgets')
+  widgets.centered_float(widgets.scopes)
+end)
+
+
 -- transparent keybindings
 -- vim.keymap.set('n', '<space>t', ':TransparentToggle<CR>')
 
@@ -279,5 +320,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
--- vim.cmd [[colorscheme gruvbox]]
-vim.cmd [[colorscheme tokyonight]]
+-- vim.cmd [[colorscheme github_light]]
+-- vim.cmd [[colorscheme github_dark]]
+vim.cmd [[colorscheme gruvbox]]
+-- vim.cmd [[colorscheme tokyonight]]
+-- vim.cmd [[colorscheme sonokai]]

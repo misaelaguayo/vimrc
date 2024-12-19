@@ -58,7 +58,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    "github/copilot.vim",
+    -- "github/copilot.vim",
     {
         "misaelaguayo/markdown.nvim",
         dev=true,

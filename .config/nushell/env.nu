@@ -105,4 +105,5 @@ $env.EDITOR = "nvim"
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
 
+zoxide init nushell | save -f ~/.zoxide.nu
 oh-my-posh init nu --config ~/.config/oh-my-posh/illusi0n.omp.json

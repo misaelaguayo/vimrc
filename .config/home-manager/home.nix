@@ -71,6 +71,7 @@ in
     # # Adds the 'hello' command to your environment. It prints a friendly
     pkgs.oh-my-posh
     pkgs.jujutsu
+    pkgs.zig
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

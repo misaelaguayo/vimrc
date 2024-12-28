@@ -97,7 +97,7 @@ $env.NU_PLUGIN_DIRS = [
 # path add ($env.HOME | path join ".local" "bin")
 # $env.PATH = ($env.PATH | uniq)
 
-$env.PATH = ($env.PATH | split row (char esep) | prepend ".nix-profile/bin")
+$env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.nix-profile/bin")
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/nix/var/nix/profiles/default/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend './Projects/depot_tools')
 $env.EDITOR = "nvim"

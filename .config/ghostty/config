@@ -4,7 +4,7 @@ font-thicken = true
 grapheme-width-method = unicode
 
 # Theme
-theme = "kanagawabones"
+theme = "jubi"
 
 # Background
 background-opacity = 1

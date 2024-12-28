@@ -72,6 +72,7 @@ in
     pkgs.oh-my-posh
     pkgs.jujutsu
     pkgs.zig
+    pkgs.nodejs_23
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

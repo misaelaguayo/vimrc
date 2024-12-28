@@ -9,7 +9,7 @@ return {
         }
     },
     "github/copilot.vim",
-    { "edluffy/hologram.nvim",   config = function() require("hologram").setup({ auto_display = true }) end },
+    { "OXY2DEV/markview.nvim", lazy = false },
     {
         "misaelaguayo/markdown.nvim",
         dev = true,

@@ -8,6 +8,14 @@ let pkgs_dotnet901 = import (pkgs.fetchFromGitHub {
   }) {
     inherit (pkgs) system;
   };
+# let nix_search_tui = import (pkgs.fetchFromGitHub {
+#     owner = "misaelaguayo";
+#     repo = "nix-search-tui";
+#     rev = "v0.1.0";
+#     sha256 = "sha256-Bnuk+28DZJV0M8Do37D58AJpEsleJf09X9x03T2dYVE=";
+#   }) {
+#     inherit (pkgs) system;
+#   };
 in
 {
   nixpkgs = {
@@ -44,26 +52,27 @@ in
     pkgs.git
     pkgs.zoxide
     pkgs.rustup
-    pkgs.git-credential-manager
-    pkgs.go
     pkgs.kubectl
     pkgs.docker
-    pkgs.postgresql
     pkgs.nix-output-monitor
-    # pkgs_dotnet8201.dotnetCorePackages.sdk_8_0
-    # pkgs.dotnetCorePackages.sdk_7_0_1xx
-    # pkgs.dotnetCorePackages.sdk_9_0
     pkgs_dotnet901.dotnetCorePackages.sdk_9_0
     pkgs.powershell
     pkgs.jujutsu
     pkgs.nodejs_24
     pkgs.docker-compose
-    pkgs.docker
-    pkgs.nix-output-monitor
     pkgs.roslyn-ls
     pkgs.netcoredbg
     pkgs.nix-search-cli
     pkgs.lldb
+    pkgs.deno
+    pkgs.protobuf
+    pkgs.cargo-generate
+    pkgs.nix-search-cli
+    pkgs.flutter
+    pkgs.ruby
+    pkgs.minikube
+    pkgs.argo-workflows
+    pkgs.lua-language-server
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

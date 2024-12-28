@@ -37,22 +37,21 @@ vim.keymap.set('n', '<space>bb', ':BufferLineCloseOthers<CR>', { noremap = true 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.keymap.set('n', '<space>c', ':lua require"dap".continue()<CR>', { noremap = true })
-vim.keymap.set('n', '<space>t', ':lua require"dap".toggle_breakpoint()<CR>', { noremap = true })
-
 -- nvim tree keybindings
 vim.keymap.set('n', '<space>e', ':NvimTreeFindFileToggle<CR>')
 
 -- nvim dap keybindings
+
+vim.keymap.set('n', '<space>n', ':lua require"dap".new()<CR>', { noremap = true })
+vim.keymap.set('n', '<space>c', ':lua require"dap".continue()<CR>', { noremap = true })
+vim.keymap.set('n', '<space>t', ':lua require"dap".toggle_breakpoint()<CR>', { noremap = true })
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
 vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
 vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
 vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
-vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
-vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
 vim.keymap.set('n', '<Leader>lp',
     function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
-vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
+vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.toggle() end)
 vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
 vim.keymap.set({ 'n', 'v' }, '<Leader>dh', function()
     require('dap.ui.widgets').hover()

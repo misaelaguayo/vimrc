@@ -200,7 +200,7 @@ plugins {
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
-default_shell ".nix-profile/bin/nu"
+default_shell "/Users/misaelaguayo/.nix-profile/bin/nu"
 
 // Choose the path to override cwd that zellij will use for opening new panes
 //

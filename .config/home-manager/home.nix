@@ -41,10 +41,7 @@ in
     pkgs.alacritty
     pkgs.nushell
     pkgs.unzip
-    pkgs.chafa
     pkgs.stack
-    pkgs.imagemagick
-    pkgs.ghostscript
     pkgs.nerd-fonts.hack
     pkgs.watchexec
     pkgs.ngrok
@@ -56,38 +53,28 @@ in
     pkgs.bun
     pkgs.gh
     pkgs.pandoc
-    pkgs.jujutsu
     pkgs.git-credential-manager
     pkgs.go
     pkgs.delta
-    # pkgs.chawan
-    # pkgs.dotnetCorePackages.sdk_8_0_1xx
+    pkgs.kubectl
+    pkgs.docker
+    pkgs.postgresql
+    pkgs.nix-output-monitor
+    pkgs.lldb_20
+    pkgs.cmake
     # pkgs_dotnet8201.dotnetCorePackages.sdk_8_0
     # pkgs.dotnetCorePackages.sdk_7_0_1xx
     # pkgs.dotnetCorePackages.sdk_9_0
     pkgs_dotnet901.dotnetCorePackages.sdk_9_0
-    # pkgs.azure-functions-core-tools
     pkgs.atuin
     pkgs.powershell
-    # pkgs.qutebrowser
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    pkgs.oh-my-posh
     pkgs.jujutsu
     pkgs.zig
     pkgs.nodejs_23
     pkgs.docker-compose
     pkgs.docker
     pkgs.dotnetPackages.Nuget
-    pkgs.pay-respects
-    pkgs.postgresql
-    pkgs.minikube
-    pkgs.kubectl
-    pkgs.pgbouncer
-    pkgs.redis
     pkgs.nix-output-monitor
-    pkgs.azure-functions-core-tools
-    pkgs.azurite
-    pkgs.ghc
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

@@ -202,7 +202,6 @@ default_shell "nu"
 // Choose the path to override cwd that zellij will use for opening new panes
 //
 // default_cwd ""
-
 // Toggle between having pane frames around the panes
 // Options:
 //   - true (default)
@@ -326,3 +325,7 @@ themes {
 // The folder in which Zellij will look for themes
 //
 // theme_dir "/path/to/my/theme_dir"
+
+env {
+    XDG_CONFIG_HOME "/Users/misael/.config"
+}

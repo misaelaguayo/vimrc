@@ -58,15 +58,10 @@
     zoxide
     mergiraf
     delta
+    pkgs.git-credential-manager
+    #pkgs_dotnet901.dotnetCorePackages.sdk_9_0
+    pkgs.dotnetCorePackages.sdk_9_0_1xx-bin
   ];
-
-  programs.fzf = {
-    enable = true;
-  };
-
-  programs.zellij = {
-    enable = true;
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

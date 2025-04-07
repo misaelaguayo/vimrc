@@ -17,6 +17,7 @@ return {
         },
     },
     { "williamboman/mason.nvim", config = function() require("mason").setup() end },
+    { "williamboman/mason-lspconfig.nvim"},
     { "folke/neoconf.nvim",      config = function() require("neoconf").setup() end },
     {
         "folke/neodev.nvim",
@@ -25,7 +26,6 @@ return {
             require("neodev").setup()
         end
     },
-    "williamboman/mason-lspconfig.nvim",
     {
         "nvim-tree/nvim-tree.lua",
         config = function()

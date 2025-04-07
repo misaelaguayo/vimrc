@@ -38,6 +38,7 @@ dap.configurations.rust = {
 }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 require("mason-lspconfig").setup()
 require("mason-lspconfig").setup_handlers {
@@ -49,5 +50,47 @@ require("mason-lspconfig").setup_handlers {
             capabilities = capabilities,
         }
     end,
-}
 
+    ["omnisharp"] = function()
+        require("lspconfig").omnisharp.setup {
+            capabilities = capabilities,
+            on_attach = function(_, bufnr)
+                vim.api.nvim_create_autocmd("BufWritePost", {
+                    group = augroup,
+                    buffer = bufnr,
+                    callback = function()
+                        vim.cmd("!dotnet csharpier .")
+                    end,
+                })
+            end
+        }
+    end,
+
+    ["ts_ls"] = function()
+        require("lspconfig").ts_ls.setup {
+            capabilities = capabilities,
+            on_attach = function(_, bufnr)
+                vim.api.nvim_create_autocmd("BufWritePost", {
+                    group = augroup,
+                    buffer = bufnr,
+                    callback = function()
+                        vim.cmd("!yarn format")
+                    end,
+                })
+            end
+        }
+    end,
+
+    ["lua_ls"] = function()
+        require("lspconfig").lua_ls.setup {
+            capabilities = capabilities,
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim" },
+                    },
+                },
+            },
+        }
+    end,
+}

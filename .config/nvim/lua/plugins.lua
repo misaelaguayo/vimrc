@@ -1,4 +1,13 @@
 return {
+    {
+        "seblyng/roslyn.nvim",
+        ft = "cs",
+        ---@module 'roslyn.config',
+        ---@type RoslynNvimConfig,
+        opts = {
+            exe = {"Microsoft.CodeAnalysis.LanguageServer"}
+        }
+    },
     "github/copilot.vim",
     { "edluffy/hologram.nvim",   config = function() require("hologram").setup({ auto_display = true }) end },
     {

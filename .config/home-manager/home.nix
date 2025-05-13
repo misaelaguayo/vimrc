@@ -40,41 +40,30 @@ in
     pkgs.ripgrep
     pkgs.alacritty
     pkgs.nushell
-    pkgs.unzip
-    pkgs.stack
     pkgs.nerd-fonts.hack
-    pkgs.watchexec
-    pkgs.ngrok
-    pkgs.tmux
     pkgs.git
     pkgs.zoxide
     pkgs.rustup
-    pkgs.pkg-config
-    pkgs.bun
-    pkgs.gh
-    pkgs.pandoc
     pkgs.git-credential-manager
     pkgs.go
-    pkgs.delta
     pkgs.kubectl
     pkgs.docker
     pkgs.postgresql
     pkgs.nix-output-monitor
-    pkgs.lldb_20
-    pkgs.cmake
     # pkgs_dotnet8201.dotnetCorePackages.sdk_8_0
     # pkgs.dotnetCorePackages.sdk_7_0_1xx
     # pkgs.dotnetCorePackages.sdk_9_0
     pkgs_dotnet901.dotnetCorePackages.sdk_9_0
-    pkgs.atuin
     pkgs.powershell
     pkgs.jujutsu
-    pkgs.zig
-    pkgs.nodejs_23
+    pkgs.nodejs_24
     pkgs.docker-compose
     pkgs.docker
-    pkgs.dotnetPackages.Nuget
     pkgs.nix-output-monitor
+    pkgs.roslyn-ls
+    pkgs.netcoredbg
+    pkgs.nix-search-cli
+    pkgs.lldb
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

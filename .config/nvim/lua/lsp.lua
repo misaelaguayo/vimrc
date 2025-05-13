@@ -2,7 +2,7 @@ local dap = require('dap')
 
 dap.adapters.coreclr = {
     type = 'executable',
-    command = 'netcoredbg',
+    command = '/Users/misael/.nix-profile/bin/netcoredbg',
     args = { '--interpreter=vscode' }
 }
 
@@ -12,14 +12,14 @@ dap.configurations.cs = {
         name = "launch - netcoredbg",
         request = "launch",
         program = function()
-            return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+            return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug' .. '/', 'file')
         end,
     },
 }
 
 dap.adapters.lldb = {
     type = 'executable',
-    command = '/Users/misaelaguayo/.nix-profile/bin/lldb-dap',
+    command = '/Users/misael/.nix-profile/bin/lldb-dap',
     name = 'lldb',
 }
 
@@ -54,15 +54,15 @@ require("mason-lspconfig").setup_handlers {
     ["omnisharp"] = function()
         require("lspconfig").omnisharp.setup {
             capabilities = capabilities,
-            on_attach = function(_, bufnr)
-                vim.api.nvim_create_autocmd("BufWritePost", {
-                    group = augroup,
-                    buffer = bufnr,
-                    callback = function()
-                        vim.cmd("!dotnet csharpier .")
-                    end,
-                })
-            end
+            -- on_attach = function(_, bufnr)
+            --     vim.api.nvim_create_autocmd("BufWritePost", {
+            --         group = augroup,
+            --         buffer = bufnr,
+            --         callback = function()
+            --             vim.cmd("!dotnet csharpier .")
+            --         end,
+            --     })
+            -- end
         }
     end,
 
@@ -74,7 +74,7 @@ require("mason-lspconfig").setup_handlers {
                     group = augroup,
                     buffer = bufnr,
                     callback = function()
-                        vim.cmd("!yarn format")
+                        -- vim.cmd("!yarn format")
                     end,
                 })
             end

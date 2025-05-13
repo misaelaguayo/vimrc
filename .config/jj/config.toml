@@ -1,0 +1,7 @@
+[user]
+name = "Misael Aguayo"
+email = "maguayo@armlend.com"
+
+[ui]
+diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
+diff.format = "git"

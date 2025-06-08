@@ -55,6 +55,9 @@
     neovim
     zellij
     nix-search-tui
+    zoxide
+    mergiraf
+    delta
   ];
 
   programs.fzf = {

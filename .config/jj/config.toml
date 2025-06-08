@@ -1,7 +1,12 @@
 [user]
 name = "Misael Aguayo"
-email = "maguayo@armlend.com"
+email = "aguayo.misael@gmail.com"
 
 [ui]
 diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
-diff.format = "git"
+diff-formatter = "delta"
+merge-editor = ["merge", "$base", "$left", "$right", "-o", "$output", "--fast"]
+conflict-marker-style = "git"
+
+[revset-aliases]
+immutable_heads = "remote_bookmarks()"

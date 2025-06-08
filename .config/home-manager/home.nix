@@ -6,6 +6,18 @@
      allowUnfree = true;
      allowUnfreePredicate = (_: true);
     };
+
+    overlays = [
+      (final: prev: {
+        nix-search-tui = prev.callPackage
+          (final.fetchFromGitHub {
+            owner = "misaelaguayo";
+            repo = "nix-search-tui";
+            rev = "v0.1.1";
+            hash = "sha256-/B5n19FpYbbFtMVx3K7jBl6uBbesPNEf64Nxw3wvRmY";
+          }) { };
+      })
+    ];
   };
 
   fonts.fontconfig.enable = true;
@@ -42,11 +54,8 @@
     lua-language-server
     neovim
     zellij
+    nix-search-tui
   ];
-
-  programs.neovim = {
-    enable = true;
-  };
 
   programs.fzf = {
     enable = true;

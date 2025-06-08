@@ -3,7 +3,7 @@
 # version = "0.95.0"
 
 def create_left_prompt [] {
-    let dir = match (do { $env.PWD | path relative-to $nu.home-path }) {
+    let dir = match (do --ignore-shell-errors { $env.PWD | path relative-to $nu.home-path }) {
         null => $env.PWD
         '' => '~'
         $relative_pwd => ([~ $relative_pwd] | path join)
@@ -97,13 +97,9 @@ $env.NU_PLUGIN_DIRS = [
 # path add ($env.HOME | path join ".local" "bin")
 # $env.PATH = ($env.PATH | uniq)
 
-$env.PATH = ($env.PATH | split row (char esep) | prepend $"($env.HOME)/.nix-profile/bin")
+$env.PATH = ($env.PATH | split row (char esep) | prepend ".nix-profile/bin")
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/nix/var/nix/profiles/default/bin')
-$env.PATH = ($env.PATH | split row (char esep) | prepend './Projects/depot_tools')
-$env.EDITOR = "nvim"
+$env.EDITOR = nvim
 
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
-
-zoxide init nushell | save -f ~/.zoxide.nu
-# oh-my-posh init nu --config ~/.config/oh-my-posh/illusi0n.omp.json

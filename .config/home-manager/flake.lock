@@ -20,7 +20,41 @@
         "type": "github"
       }
     },
+    "nix-search-tui-package": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1749346706,
+        "narHash": "sha256-51IFgluY3ND0jBnSuNTUupVGe9gY2sOgHeCqM4zMyNs=",
+        "owner": "misaelaguayo",
+        "repo": "nix-search-tui",
+        "rev": "50edf014aed64c17aeb6903b520a86ea1929e473",
+        "type": "github"
+      },
+      "original": {
+        "owner": "misaelaguayo",
+        "repo": "nix-search-tui",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1749143949,
+        "narHash": "sha256-QuUtALJpVrPnPeozlUG/y+oIMSLdptHxb3GK6cpSVhA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d3d2d80a2191a73d1e86456a751b83aa13085d7d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1748929857,
         "narHash": "sha256-lcZQ8RhsmhsK8u7LIFsJhsLh/pzR9yZ8yqpTzyGdj+Q=",
@@ -39,7 +73,8 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nix-search-tui-package": "nix-search-tui-package",
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },

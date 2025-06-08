@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, nix-search-tui, ... }: {
   home = {
     packages = with pkgs; [
       fnm
@@ -19,7 +19,6 @@
       docker-compose
       roslyn-ls
       netcoredbg
-      nix-search-cli
       lldb
       deno
       protobuf
@@ -31,6 +30,8 @@
       argo-workflows
       lua-language-server
       neovim
+      zellij
+      nix-search-tui
     ];
 
     username = "misaelaguayo";

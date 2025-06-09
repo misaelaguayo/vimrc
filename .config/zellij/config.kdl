@@ -176,10 +176,7 @@ keybinds {
 }
 
 plugins {
-    tab-bar { path "tab-bar"; }
-    status-bar { path "status-bar"; }
-    strider { path "strider"; }
-    compact-bar { path "compact-bar"; }
+
 }
 
 // Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
@@ -200,7 +197,7 @@ plugins {
 // Choose the path to the default shell that zellij will use for opening new panes
 // Default: $SHELL
 //
-default_shell ".nix-profile/bin/nu"
+default_shell "nu"
 
 // Choose the path to override cwd that zellij will use for opening new panes
 //
@@ -257,7 +254,7 @@ themes {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "gruvbox-light"
+// theme "gruvbox-light"
 
 // The name of the default layout to load on startup
 // Default: "default"

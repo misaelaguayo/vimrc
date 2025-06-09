@@ -58,9 +58,10 @@
     zoxide
     mergiraf
     delta
-    pkgs.git-credential-manager
+    git-credential-manager
     #pkgs_dotnet901.dotnetCorePackages.sdk_9_0
-    pkgs.dotnetCorePackages.sdk_9_0_1xx-bin
+    dotnetCorePackages.sdk_9_0_1xx-bin
+    roslyn-ls
   ];
 
   # Let Home Manager install and manage itself.

@@ -43,6 +43,7 @@ require("mason-lspconfig").setup{
     automatic_enable = {
         exclude = {
             "lua_ls",
+            "roslyn_ls",
         }
     }
 }
@@ -58,3 +59,23 @@ require("lspconfig").lua_ls.setup {
         },
     },
 }
+
+vim.lsp.enable("roslyn_ls")
+
+-- require("lspconfig").omnisharp.setup {
+--     cmd = { "dotnet", "/Users/misael/.nix-profile/lib/omnisharp-roslyn/OmniSharp.dll" },
+--     capabilities = capabilities,
+--     settings = {
+--         FormattingOptions = {
+--             EnableEditorConfigSupport = true,
+--             OrganizeImports = true,
+--         },
+--         MsBuild = {
+--             LoadProjectsOnDemand = false,
+--         },
+--         RoslynExtensionsOptions = {
+--             EnableAnalyzersSupport = true,
+--             EnableImportCompletion = true,
+--         },
+--     }
+-- }

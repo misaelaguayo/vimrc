@@ -3,7 +3,7 @@
 # version = "0.95.0"
 
 def create_left_prompt [] {
-    let dir = match (do --ignore-shell-errors { $env.PWD | path relative-to $nu.home-path }) {
+    let dir = match (do { $env.PWD | path relative-to $nu.home-path }) {
         null => $env.PWD
         '' => '~'
         $relative_pwd => ([~ $relative_pwd] | path join)
@@ -99,7 +99,8 @@ $env.NU_PLUGIN_DIRS = [
 
 $env.PATH = ($env.PATH | split row (char esep) | prepend ".nix-profile/bin")
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/nix/var/nix/profiles/default/bin')
-$env.EDITOR = nvim
+$env.EDITOR = "nvim"
 
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
+zoxide init nushell | save -f ~/.zoxide.nu

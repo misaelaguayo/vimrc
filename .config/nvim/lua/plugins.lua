@@ -1,13 +1,4 @@
 return {
-    {
-        "seblyng/roslyn.nvim",
-        ft = "cs",
-        ---@module 'roslyn.config',
-        ---@type RoslynNvimConfig,
-        opts = {
-            exe = {"Microsoft.CodeAnalysis.LanguageServer"}
-        }
-    },
     "github/copilot.vim",
     { "OXY2DEV/markview.nvim", lazy = false },
     {

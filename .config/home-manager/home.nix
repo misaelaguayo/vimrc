@@ -1,10 +1,22 @@
 { pkgs, ... }:
 
+let
+  pkgs_dotnet901 = import
+    (pkgs.fetchFromGitHub {
+      owner = "NixOS";
+      repo = "nixpkgs";
+      rev = "4ba028e8856a32c10eded2e94785b62454fba032";
+      sha256 = "sha256-VN+HYd0swhTG61NuJphWokknOQ3IO+FDcnMurNP8P44=";
+    })
+    {
+      inherit (pkgs) system;
+    };
+in
 {
   nixpkgs = {
     config = {
-     allowUnfree = true;
-     allowUnfreePredicate = (_: true);
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
     };
 
     overlays = [
@@ -15,7 +27,8 @@
             repo = "nix-search-tui";
             rev = "v0.1.1";
             hash = "sha256-/B5n19FpYbbFtMVx3K7jBl6uBbesPNEf64Nxw3wvRmY";
-          }) { };
+          })
+          { };
       })
     ];
   };
@@ -59,8 +72,8 @@
     mergiraf
     delta
     git-credential-manager
-    #pkgs_dotnet901.dotnetCorePackages.sdk_9_0
-    dotnetCorePackages.sdk_9_0_1xx-bin
+    pkgs_dotnet901.dotnetCorePackages.sdk_9_0
+    # dotnetCorePackages.sdk_9_0_1xx-bin
     roslyn-ls
   ];
 

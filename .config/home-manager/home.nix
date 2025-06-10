@@ -1,17 +1,5 @@
 { pkgs, ... }:
 
-let
-  pkgs_dotnet901 = import
-    (pkgs.fetchFromGitHub {
-      owner = "NixOS";
-      repo = "nixpkgs";
-      rev = "4ba028e8856a32c10eded2e94785b62454fba032";
-      sha256 = "sha256-VN+HYd0swhTG61NuJphWokknOQ3IO+FDcnMurNP8P44=";
-    })
-    {
-      inherit (pkgs) system;
-    };
-in
 {
   nixpkgs = {
     config = {
@@ -25,8 +13,16 @@ in
           (final.fetchFromGitHub {
             owner = "misaelaguayo";
             repo = "nix-search-tui";
-            rev = "v0.1.1";
-            hash = "sha256-/B5n19FpYbbFtMVx3K7jBl6uBbesPNEf64Nxw3wvRmY";
+            rev = "v0.2.0";
+            hash = "sha256-Ksm9xZ0mFf5SVVzkHALnWCDT2aQl69IvWZgyR8dR1Mk=";
+          })
+          { };
+        pkgs_dotnet901 = prev.callPackage
+          (final.fetchFromGitHub {
+            owner = "NixOS";
+            repo = "nixpkgs";
+            rev = "4ba028e8856a32c10eded2e94785b62454fba032";
+            hash = "sha256-VN+HYd0swhTG61NuJphWokknOQ3IO+FDcnMurNP8P44=";
           })
           { };
       })

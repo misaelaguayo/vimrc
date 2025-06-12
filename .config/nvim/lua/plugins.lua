@@ -9,7 +9,17 @@ return {
     },
     { "williamboman/mason.nvim", config = function() require("mason").setup() end },
     { "williamboman/mason-lspconfig.nvim"},
-    { "folke/neoconf.nvim",      config = function() require("neoconf").setup() end },
+    {
+      "luckasRanarison/tailwind-tools.nvim",
+      name = "tailwind-tools",
+      build = ":UpdateRemotePlugins",
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-telescope/telescope.nvim", -- optional
+        "neovim/nvim-lspconfig", -- optional
+      },
+      opts = {} -- your configuration
+    },
     {
         "folke/neodev.nvim",
         opts = {},

@@ -69,6 +69,7 @@
     delta
     git-credential-manager
     pkgs_dotnet901.dotnetCorePackages.sdk_9_0
+    tailwindcss-language-server
     # dotnetCorePackages.sdk_9_0_1xx-bin
     roslyn-ls
   ];

@@ -7,26 +7,7 @@
       allowUnfreePredicate = (_: true);
     };
 
-    overlays = [
-      (final: prev: {
-        nix-search-tui = prev.callPackage
-          (final.fetchFromGitHub {
-            owner = "misaelaguayo";
-            repo = "nix-search-tui";
-            rev = "v0.2.0";
-            hash = "sha256-Ksm9xZ0mFf5SVVzkHALnWCDT2aQl69IvWZgyR8dR1Mk=";
-          })
-          { };
-        pkgs_dotnet901 = prev.callPackage
-          (final.fetchFromGitHub {
-            owner = "NixOS";
-            repo = "nixpkgs";
-            rev = "4ba028e8856a32c10eded2e94785b62454fba032";
-            hash = "sha256-VN+HYd0swhTG61NuJphWokknOQ3IO+FDcnMurNP8P44=";
-          })
-          { };
-      })
-    ];
+    overlays = [ (import ./overlay.nix) ];
   };
 
   fonts.fontconfig.enable = true;
@@ -72,6 +53,7 @@
     tailwindcss-language-server
     # dotnetCorePackages.sdk_9_0_1xx-bin
     roslyn-ls
+    # devtui
   ];
 
   # Let Home Manager install and manage itself.

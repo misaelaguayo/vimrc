@@ -1,4 +1,13 @@
 return {
+    -- {
+    --     "seblyng/roslyn.nvim",
+    --     ft = "cs",
+    --     ---@module 'roslyn.config'
+    --     ---@type RoslynNvimConfig
+    --     opts = {
+    --         filewatching = "off"
+    --     },
+    -- },
     "github/copilot.vim",
     { "OXY2DEV/markview.nvim", lazy = false },
     {
@@ -7,7 +16,12 @@ return {
         opts = {
         },
     },
-    { "williamboman/mason.nvim", config = function() require("mason").setup() end },
+    { "williamboman/mason.nvim", config = function() require("mason").setup({
+        -- registries = {
+        --     "github:mason-org/mason-registry",
+        --     "github:CrashDummyy/mason-registry",
+        -- },
+    }) end },
     { "williamboman/mason-lspconfig.nvim"},
     {
       "luckasRanarison/tailwind-tools.nvim",

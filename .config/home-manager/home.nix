@@ -32,7 +32,6 @@
     jujutsu
     nodejs_24
     docker-compose
-    roslyn-ls
     netcoredbg
     lldb
     deno
@@ -53,7 +52,8 @@
     tailwindcss-language-server
     # dotnetCorePackages.sdk_9_0_1xx-bin
     roslyn-ls
-    # devtui
+    postgresql
+    mergiraf
   ];
 
   programs = {

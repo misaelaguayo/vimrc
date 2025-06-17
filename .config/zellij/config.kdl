@@ -2,6 +2,12 @@
  default_shell "nu"
  pane_frames false
 
+ keybinds {
+     // nvim keybinds
+     unbind "Ctrl o"
+     unbind "Ctrl i"
+ }
+
 themes {
     gruvbox-light {
         fg 60 56 54
@@ -35,6 +41,6 @@ themes {
 
  copy_on_select true
 
-env {
-    XDG_CONFIG_HOME "/Users/misael/.config"
-}
+// env {
+//     XDG_CONFIG_HOME "/Users/misael/.config"
+// }

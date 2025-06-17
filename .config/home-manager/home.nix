@@ -56,6 +56,15 @@
     # devtui
   ];
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs = {
+    direnv = {
+      enable = true;
+      enableNushellIntegration = true;
+      nix-direnv.enable = true;
+    };
+
+    home-manager.enable = true;
+    nushell.enable = true;
+  };
+
 }

@@ -41,6 +41,6 @@ themes {
 
  copy_on_select true
 
-// env {
-//     XDG_CONFIG_HOME "/Users/misael/.config"
-// }
+env {
+    XDG_CONFIG_HOME "/Users/misaelaguayo/.config"
+}

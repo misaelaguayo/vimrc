@@ -28,14 +28,12 @@
     kubectl
     docker
     nix-output-monitor
-    powershell
     jujutsu
     nodejs_24
     docker-compose
     netcoredbg
     lldb
     deno
-    protobuf
     cargo-generate
     nix-search-cli
     minikube
@@ -48,12 +46,8 @@
     mergiraf
     delta
     git-credential-manager
-    pkgs_dotnet901.dotnetCorePackages.sdk_9_0
-    tailwindcss-language-server
-    # dotnetCorePackages.sdk_9_0_1xx-bin
-    roslyn-ls
-    postgresql
     mergiraf
+    pay-respects
   ];
 
   programs = {

@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+vim.g.UltiSnipsSnippetsDir="$HOME/.config/nvim/UltiSnips"
 
 cmp.setup({
     snippet = {

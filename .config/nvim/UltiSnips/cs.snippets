@@ -1,0 +1,8 @@
+snippet handler "Command handler snippet" b
+
+public record `!v expand('%:t:r')`(Urn LoanUrn) : IRequest<Loan>;
+
+public class `!v expand('%:t:r')`Handler() : IRequestHandler<`!v expand('%:t:r')`, Loan>
+{
+}
+endsnippet

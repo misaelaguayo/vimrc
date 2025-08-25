@@ -14,4 +14,4 @@ immutable_heads = "builtin_immutable_heads() | (remote_bookmarks())"
 [aliases]
 # Find the closest ancestor with a bookmark pointing at it, and move it to the
 # parent of the working copy.
-tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@"]

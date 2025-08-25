@@ -9,7 +9,6 @@ return {
     --     },
     -- },
     "github/copilot.vim",
-    { "OXY2DEV/markview.nvim", lazy = false },
     {
         "misaelaguayo/markdown.nvim",
         dev = true,
@@ -66,7 +65,7 @@ return {
     "mfussenegger/nvim-dap",
     "milisims/nvim-luaref",
     "folke/which-key.nvim",
-    "folke/trouble.nvim",
+    { "folke/trouble.nvim", opts = {}, cmd = "Trouble" },
     { "ellisonleao/gruvbox.nvim", priority = 1000 },
     {
         'nvim-lualine/lualine.nvim',

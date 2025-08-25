@@ -1,3 +1,9 @@
+require("neotest").setup({
+    adapters = {
+        require("neotest-vstest")
+    }
+})
+
 local dap = require('dap')
 
 dap.adapters.coreclr = {

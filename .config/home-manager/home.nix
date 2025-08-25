@@ -48,6 +48,7 @@
     git-credential-manager
     mergiraf
     pay-respects
+    nh
   ];
 
   programs = {

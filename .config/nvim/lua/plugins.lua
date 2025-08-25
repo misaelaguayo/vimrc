@@ -1,14 +1,15 @@
 return {
-    -- {
-    --     "seblyng/roslyn.nvim",
-    --     ft = "cs",
-    --     ---@module 'roslyn.config'
-    --     ---@type RoslynNvimConfig
-    --     opts = {
-    --         filewatching = "off"
-    --     },
-    -- },
     "github/copilot.vim",
+    {
+      "nvim-neotest/neotest",
+      dependencies = {
+        "nvim-neotest/nvim-nio",
+        "nvim-lua/plenary.nvim",
+        "antoinemadec/FixCursorHold.nvim",
+        "nvim-treesitter/nvim-treesitter"
+      }
+    },
+    "nsidorenco/neotest-vstest",
     {
         "misaelaguayo/markdown.nvim",
         dev = true,

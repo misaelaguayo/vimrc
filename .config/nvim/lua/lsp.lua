@@ -50,9 +50,11 @@ require("mason-lspconfig").setup {
         exclude = {
             "lua_ls",
             "roslyn_ls",
-        }
+        },
     },
-    ensure_installed = {},
+    ensure_installed = {
+        "rust_analyzer",
+    }
 }
 
 require("lspconfig").lua_ls.setup {

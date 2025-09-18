@@ -19,13 +19,10 @@
 
   home.packages = with pkgs; [
     fnm
-    corepack_latest
     ripgrep
     nushell
     nerd-fonts.hack
     git
-    rustup
-    kubectl
     docker
     nix-output-monitor
     jujutsu
@@ -36,8 +33,6 @@
     deno
     cargo-generate
     nix-search-cli
-    minikube
-    argo-workflows
     lua-language-server
     neovim
     zellij
@@ -46,9 +41,8 @@
     mergiraf
     delta
     git-credential-manager
-    mergiraf
-    pay-respects
-    nh
+    roslyn-ls
+    difftastic
   ];
 
   programs = {

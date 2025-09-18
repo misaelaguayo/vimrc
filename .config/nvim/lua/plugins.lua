@@ -10,6 +10,15 @@ return {
       }
     },
     "nsidorenco/neotest-vstest",
+    { "OXY2DEV/markview.nvim", lazy = false },
+    {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        dependencies = {
+            {"nvim-lua/plenary.nvim", branch = "master" },
+        },
+        build = "make tiktoken",
+        opts = {},
+    },
     {
         "misaelaguayo/markdown.nvim",
         dev = true,

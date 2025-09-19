@@ -43,6 +43,10 @@
     git-credential-manager
     roslyn-ls
     difftastic
+    caddy
+    nss
+    starship
+    starship-jj
   ];
 
   programs = {

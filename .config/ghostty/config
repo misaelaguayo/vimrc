@@ -4,7 +4,8 @@ font-thicken = true
 grapheme-width-method = unicode
 
 # Theme
-theme = "Atelier Sulphurpool"
+# theme = "Atelier Sulphurpool"
+theme = "Iceberg Dark"
 
 # Background
 background-opacity = 1
@@ -22,4 +23,4 @@ window-decoration = true
 
 shell-integration-features = cursor,sudo,title
 
-custom-shader = /users/misaelaguayo/.config/ghostty/shaders/cursor_blaze_tapered.glsl
+custom-shader = /users/misael/.config/ghostty/shaders/debug_cursor_animated.glsl

@@ -57,17 +57,17 @@ require("mason-lspconfig").setup {
     }
 }
 
-require("lspconfig").lua_ls.setup {
-    cmd = { "lua-language-server" },
+vim.lsp.config('lua_ls', {
     capabilities = capabilities,
+    cmd = { "lua-language-server" },
     settings = {
         Lua = {
             diagnostics = {
-                globals = { "vim" },
+                globals = { 'vim' },
             },
         },
     },
-}
+})
 
 vim.lsp.config('roslyn_ls', {
     capabilities = capabilities,

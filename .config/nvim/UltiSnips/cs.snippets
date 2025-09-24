@@ -1,8 +1,12 @@
 snippet handler "Command handler snippet" b
 
-public record `!v expand('%:t:r')`(Urn LoanUrn) : IRequest<Loan>;
+public record `!v expand('%:t:r')` : IRequest<Loan>
+{
+	public required Urn LoanUrn { get; init; }
+	public required UserId RequestingUserId { get; init; }
+}
 
-public class `!v expand('%:t:r')`Handler() : IRequestHandler<`!v expand('%:t:r')`, Loan>
+public class `!v expand('%:t:r')`Handler(IEventStoreRepo<Loan> loanEventStoreRepo) : IRequestHandler<`!v expand('%:t:r')`, Loan>
 {
 }
 endsnippet

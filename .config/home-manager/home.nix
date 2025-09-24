@@ -18,7 +18,6 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
-    fnm
     ripgrep
     nushell
     nerd-fonts.hack
@@ -43,8 +42,6 @@
     git-credential-manager
     roslyn-ls
     difftastic
-    caddy
-    nss
     starship
     starship-jj
     pandoc

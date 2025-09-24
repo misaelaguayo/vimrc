@@ -77,6 +77,26 @@ return {
         build = "make tiktoken",
         opts = {},
     },
+    {
+        "misaelaguayo/markdown.nvim",
+        build = "cargo build --release",
+        opts = {},
+        dependencies = {
+            { 
+                "3rd/image.nvim", 
+                build = false,
+                opts = {
+                    processor = "magick_cli",
+                },
+                config = function()
+                    require("image").setup({
+                        backend = "kitty",
+                        processor = "magick_cli",
+                    })
+                end
+            }
+        }
+    },
     { "williamboman/mason.nvim", config = function() require("mason").setup({
         -- registries = {
         --     "github:mason-org/mason-registry",
@@ -84,17 +104,6 @@ return {
         -- },
     }) end },
     { "williamboman/mason-lspconfig.nvim"},
-    {
-      "luckasRanarison/tailwind-tools.nvim",
-      name = "tailwind-tools",
-      build = ":UpdateRemotePlugins",
-      dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        "nvim-telescope/telescope.nvim", -- optional
-        "neovim/nvim-lspconfig", -- optional
-      },
-      opts = {} -- your configuration
-    },
     {
         "folke/neodev.nvim",
         opts = {},

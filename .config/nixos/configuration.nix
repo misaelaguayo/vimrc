@@ -38,6 +38,17 @@
   # Enable sound.
   services.pulseaudio.enable = false;
 
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+	user = "misael";
+      };
+      default_session = initial_session;
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.misael = {
     isNormalUser = true;
@@ -102,7 +113,6 @@
     waybar
     font-awesome
     pavucontrol
-    greetd.greetd
   ];
 
   fonts.packages = with pkgs; [

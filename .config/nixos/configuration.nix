@@ -45,6 +45,7 @@
     packages = with pkgs; [
       tree
     ];
+    shell = pkgs.nushell;
   };
 
   programs.firefox.enable = true;
@@ -54,12 +55,13 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
+    kitty
     alacritty
     neovim
     git
     fnm
     ripgrep
-    nerd-fonts.hack
+    # nerd-fonts.hack
     zoxide
     zellij
     nushell
@@ -96,6 +98,23 @@
     lshw-gui
     nh
     luajitPackages.magick
+    wofi
+    waybar
+    font-awesome
+    pavucontrol
+    greetd.greetd
+  ];
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
   ];
 
   # NOTE FROM MISAEL DON'T CHANGE THIS UNLESS YOU REALLY UNDERSTAND IT

@@ -7,13 +7,19 @@
       hash = "sha256-Ksm9xZ0mFf5SVVzkHALnWCDT2aQl69IvWZgyR8dR1Mk=";
     })
     { };
-  starship-jj = prev.callPackage
-    (final.fetchFromGitLab {
-      owner = "lanastara_foss";
-      repo = "starship-jj";
-      rev = "0.6.0";
-      hash = "sha256-HTkDZQJnlbv2LlBybpBTNh1Y3/M8RNeQuiked3JaLgI=";
+  starship-jj = final.rustPlatform.buildRustPackage
+    rec {
+      pname = "starship-jj";
+      version = "0.6.0";
+
+      src = final.fetchFromGitLab {
+        owner = "lanastara_foss";
+        repo = "starship-jj";
+        rev = "${version}";
+        hash = "sha256-HTkDZQJnlbv2LlBybpBTNh1Y3/M8RNeQuiked3JaLgI=";
+      };
+
+      cargoHash = "sha256-E5z3AZhD3kiP6ojthcPne0f29SbY0eV4EYTFewA+jNc=";
+    };
     })
-    { };
-})
 

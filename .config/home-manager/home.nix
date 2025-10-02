@@ -47,6 +47,8 @@
     nss
     starship
     starship-jj
+    pandoc
+    imagemagick
   ];
 
   programs = {

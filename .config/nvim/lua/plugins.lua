@@ -5,6 +5,29 @@ return {
     }) end},
     "github/copilot.vim",
     {
+        "misaelaguayo/markdown.nvim",
+        build = "cargo build --release",
+        dev = true,
+        opts = {
+            converter_bin = "/Users/misaelaguayo/Projects/markdown.nvim/target/release/converter"
+        },
+        dependencies = {
+            { 
+                "3rd/image.nvim", 
+                build = false,
+                opts = {
+                    processor = "magick_cli",
+                },
+                config = function()
+                    require("image").setup({
+                        backend = "kitty",
+                        processor = "magick_cli",
+                    })
+                end
+            }
+        }
+    },
+    {
         "folke/noice.nvim",
         event = "VeryLazy",
         opts = {
@@ -53,12 +76,6 @@ return {
         },
         build = "make tiktoken",
         opts = {},
-    },
-    {
-        "misaelaguayo/markdown.nvim",
-        dev = true,
-        opts = {
-        },
     },
     { "williamboman/mason.nvim", config = function() require("mason").setup({
         -- registries = {

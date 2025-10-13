@@ -19,6 +19,7 @@
         "temperature",
         "clock",
         "tray",
+        "custom/power",
     ],
     // Modules configuration
     "wlr/taskbar": {

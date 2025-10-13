@@ -50,12 +50,24 @@ require("mason-lspconfig").setup {
         exclude = {
             "lua_ls",
             "roslyn_ls",
+            "rust_analyzer",
         },
     },
-    ensure_installed = {
-        "rust_analyzer",
-    }
 }
+
+vim.lsp.config('rust_analyzer', {
+    capabilities = capabilities,
+    settings = {
+        ["rust-analyzer"] = {
+            cargo = {
+                allFeatures = true,
+            },
+            checkOnSave = {
+                command = "clippy",
+            },
+        },
+    },
+})
 
 vim.lsp.config('lua_ls', {
     capabilities = capabilities,

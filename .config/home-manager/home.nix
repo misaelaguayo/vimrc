@@ -49,6 +49,7 @@
     starship-jj
     pandoc
     imagemagick
+    yabai
   ];
 
   programs = {

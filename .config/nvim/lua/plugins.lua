@@ -135,10 +135,7 @@ return {
     },
     "ms-jpq/coq_nvim",
     "ms-jpq/coq.artifacts",
-    {
-        "junegunn/fzf",
-        dev = true
-    },
+    "junegunn/fzf",
     "junegunn/fzf.vim",
     "tpope/vim-fugitive",
     { "lewis6991/gitsigns.nvim",    config = function() require("gitsigns").setup() end },

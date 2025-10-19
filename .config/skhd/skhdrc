@@ -1,0 +1,11 @@
+# focus window
+
+ctrl - j : yabai -m window --focus north
+ctrl - l : yabai -m window --focus south
+ctrl - h : yabai -m window --focus west
+ctrl - l : yabai -m window --focus east
+
+ctrl - up : yabai -m window --focus north
+ctrl - down : yabai -m window --focus south
+ctrl - left : yabai -m window --focus west
+ctrl - right : yabai -m window --focus east

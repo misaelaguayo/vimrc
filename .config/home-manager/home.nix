@@ -50,6 +50,10 @@
     pandoc
     imagemagick
     yabai
+    skhd
+    rustup
+    fzf
+    carapace
   ];
 
   programs = {

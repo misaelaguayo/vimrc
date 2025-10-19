@@ -104,3 +104,7 @@ $env.EDITOR = "nvim"
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
 zoxide init nushell | save -f ~/.zoxide.nu
+
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
+mkdir $"($nu.cache-dir)"
+carapace _carapace nushell | save --force $"($nu.cache-dir)/carapace.nu"

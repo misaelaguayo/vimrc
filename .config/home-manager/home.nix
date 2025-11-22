@@ -48,9 +48,9 @@
     imagemagick
     yabai
     skhd
-    rustup
     fzf
     carapace
+    codelldb
   ];
 
   programs = {

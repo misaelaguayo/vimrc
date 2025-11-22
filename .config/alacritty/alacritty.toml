@@ -1,5 +1,3 @@
-live_config_reload = true
-
 [font]
 size = 13.0
 
@@ -18,7 +16,7 @@ style = "Regular"
 [window]
 opacity = 0.95
 
-[shell]
+[terminal.shell]
 program = ".nix-profile/bin/nu"
 
 [selection]
@@ -26,3 +24,11 @@ save_to_clipboard = true
 
 [env]
 XDG_CONFIG_HOME = "/Users/misaelaguayo/.config"
+
+[debug]
+log_level = "Debug"
+
+[general]
+live_config_reload = true
+
+[terminal]

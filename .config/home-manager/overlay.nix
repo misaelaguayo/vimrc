@@ -21,5 +21,8 @@
 
       cargoHash = "sha256-E5z3AZhD3kiP6ojthcPne0f29SbY0eV4EYTFewA+jNc=";
     };
+    codelldb = final.callPackage ./codelldb-wrapper.nix {
+      vscode-lldb = final.vscode-extensions.vadimcn.vscode-lldb;
+    };
     })
 

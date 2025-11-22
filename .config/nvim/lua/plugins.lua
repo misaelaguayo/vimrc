@@ -3,6 +3,10 @@ return {
 	backend = "kitty",
 	processor = "magick_cli",
     }) end},
+    {
+      "esmuellert/vscode-diff.nvim",
+      dependencies = { "MunifTanjim/nui.nvim" },
+    },
     "github/copilot.vim",
     {
         "misaelaguayo/markdown.nvim",

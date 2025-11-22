@@ -25,7 +25,7 @@ dap.configurations.cs = {
 
 dap.adapters.lldb = {
     type = 'executable',
-    command = '/Users/misael/.nix-profile/bin/lldb-dap',
+    command = 'codelldb',
     name = 'lldb',
 }
 
@@ -38,7 +38,7 @@ dap.configurations.rust = {
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug' .. '/', 'file')
         end,
         cwd = '${workspaceFolder}',
-        stopOnEntry = true,
+        stopOnEntry = false,
         args = {},
     }
 }

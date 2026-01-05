@@ -3,34 +3,30 @@ return {
 	backend = "kitty",
 	processor = "magick_cli",
     }) end},
-    {
-      "esmuellert/vscode-diff.nvim",
-      dependencies = { "MunifTanjim/nui.nvim" },
-    },
     "github/copilot.vim",
-    {
-        "misaelaguayo/markdown.nvim",
-        build = "cargo build --release",
-        dev = true,
-        opts = {
-            converter_bin = "/Users/misaelaguayo/Projects/markdown.nvim/target/release/converter"
-        },
-        dependencies = {
-            { 
-                "3rd/image.nvim", 
-                build = false,
-                opts = {
-                    processor = "magick_cli",
-                },
-                config = function()
-                    require("image").setup({
-                        backend = "kitty",
-                        processor = "magick_cli",
-                    })
-                end
-            }
-        }
-    },
+    -- {
+    --     "misaelaguayo/markdown.nvim",
+    --     build = "cargo build --release",
+    --     dev = true,
+    --     opts = {
+    --         converter_bin = "/Users/misaelaguayo/Projects/markdown.nvim/target/release/converter"
+    --     },
+    --     dependencies = {
+    --         { 
+    --             "3rd/image.nvim", 
+    --             build = false,
+    --             opts = {
+    --                 processor = "magick_cli",
+    --             },
+    --             config = function()
+    --                 require("image").setup({
+    --                     backend = "kitty",
+    --                     processor = "magick_cli",
+    --                 })
+    --             end
+    --         }
+    --     }
+    -- },
     {
         "folke/noice.nvim",
         event = "VeryLazy",

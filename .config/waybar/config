@@ -7,37 +7,21 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces",
-        "wlr/taskbar",
     ],
     "modules-center": [
-        "clock",
     ],
     "modules-right": [
+        "wlr/taskbar",
         "pulseaudio",
-        "backlight/slider",
+        "network",
         "cpu",
         "memory",
-        "battery",
+        "temperature",
+        "clock",
         "tray",
         "custom/power",
     ],
     // Modules configuration
-    "hyprland/workspaces": {
-      "format": "{icon}",
-      "on-click": "activate",
-      "format-icons": {
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
-        "urgent": "",
-        "active": "",
-        "default": ""
-      },
-      "sort-by-number": true
-    },
     "wlr/taskbar": {
       "format": "{icon}",
       "all-outputs": true,
@@ -48,11 +32,6 @@
       "ignore-list": [
         "rofi"
       ]
-    },
-    "backlight/slider": {
-      "min": 5,
-      "max": 100,
-      "orientation": "vertical",
     },
     "tray": {
         // "icon-size": 21,
@@ -82,17 +61,6 @@
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-icons": ["", "", ""]
-    },
-    "battery": {
-        "bat": "CMB0",
-        "interval": 60,
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""],
-        "max-length": 25
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
